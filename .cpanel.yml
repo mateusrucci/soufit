@@ -1,5 +1,5 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=$HOME/lp.soufit.com/
+    - export DEPLOYPATH=$HOME/lp.soufit.com/soufit/
     - /bin/cp -R index.html cdn-cgi fonts.googleapis.com fonts.gstatic.com use.typekit.net wp-content wp-includes $DEPLOYPATH
