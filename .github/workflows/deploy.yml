@@ -27,7 +27,7 @@ jobs:
           username: ${{ secrets.HOSTGATOR_FTP_USERNAME }}
           password: ${{ secrets.HOSTGATOR_FTP_PASSWORD }}
           local-dir: ./dist/lp.soufit.com/
-          server-dir: /lp.soufit.com/
+          server-dir: ./
           exclude: |
             **/.git*
             **/.git*/**
