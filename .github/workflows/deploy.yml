@@ -18,7 +18,7 @@ jobs:
         run: |
           curl --show-error --fail-with-body \
             -H "Authorization: cpanel mate9316:$CPANEL_API_TOKEN" \
-            "https://soufit.com:2083/execute/VersionControl/update?repository_root=/home3/mate9316/repositories/lp.soufit.com&branch=main"
+            "https://br956.hostgator.com.br:2083/execute/VersionControl/update?repository_root=/home3/mate9316/repositories/lp.soufit.com&branch=main"
 
       - name: Trigger cPanel Git Deploy via API
         env:
@@ -26,4 +26,4 @@ jobs:
         run: |
           curl --show-error --fail-with-body \
             -H "Authorization: cpanel mate9316:$CPANEL_API_TOKEN" \
-            "https://soufit.com:2083/execute/VersionControlDeployment/create?repository_root=/home3/mate9316/repositories/lp.soufit.com"
+            "https://br956.hostgator.com.br:2083/execute/VersionControlDeployment/create?repository_root=/home3/mate9316/repositories/lp.soufit.com"
