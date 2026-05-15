@@ -48,7 +48,40 @@ jobs:
               "https://br956.hostgator.com.br:2083/execute/Fileman/save_file_content" >/dev/null
           }
 
+          upload_file() {
+            local dir="$1"
+            local file="$2"
+            local source="$3"
+
+            curl --show-error --fail-with-body \
+              -H "Authorization: cpanel mate9316:$CPANEL_API_TOKEN" \
+              -F "dir=$dir" \
+              -F "file-1=@$source;filename=$file" \
+              "https://br956.hostgator.com.br:2083/execute/Fileman/upload_files" >/dev/null
+          }
+
           publish_file "/home3/mate9316/lp.soufit.com" "utm-forwarder.js" "shared/utm-forwarder.js"
           publish_file "/home3/mate9316/lp.soufit.com" "meta-tracking.js" "shared/meta-tracking.js"
           publish_file "/home3/mate9316/lp.soufit.com" "meta-capi.php" "shared/meta-capi.php"
+          publish_file "/home3/mate9316/lp.soufit.com" ".htaccess" "shared/root.htaccess"
+          publish_file "/home3/mate9316/lp.soufit.com" "robots.txt" "shared/robots.txt"
+          publish_file "/home3/mate9316/lp.soufit.com/fitmoderno" ".htaccess" "sites/fitmoderno/.htaccess"
           publish_file "/home3/mate9316/lp.soufit.com/fitmoderno" "index.html" "sites/fitmoderno/index.html"
+
+          publish_tree() {
+            local source_dir="$1"
+            local target_dir="$2"
+
+            find "$source_dir" -type f | while IFS= read -r source; do
+              local rel="${source#$source_dir/}"
+              local dir="$target_dir/$(dirname "$rel")"
+              local file
+              file="$(basename "$rel")"
+              upload_file "$dir" "$file" "$source"
+            done
+          }
+
+          publish_tree "sites/fitmoderno/use.typekit.net" "/home3/mate9316/lp.soufit.com/fitmoderno/use.typekit.net"
+          publish_tree "sites/fitmoderno/fonts.googleapis.com" "/home3/mate9316/lp.soufit.com/fitmoderno/fonts.googleapis.com"
+          publish_tree "sites/fitmoderno/fonts.gstatic.com" "/home3/mate9316/lp.soufit.com/fitmoderno/fonts.gstatic.com"
+          publish_tree "sites/fitmoderno/wp-content/uploads" "/home3/mate9316/lp.soufit.com/fitmoderno/wp-content/uploads"

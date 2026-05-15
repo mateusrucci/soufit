@@ -7,7 +7,10 @@ deployment:
     - /bin/mkdir -p $BASEPATH
     - /bin/mkdir -p $DEPLOYPATH
     - /bin/rm -f $BASEPATH/index.html
+    - /bin/cp shared/root.htaccess $BASEPATH/.htaccess
+    - /bin/cp shared/robots.txt $BASEPATH/robots.txt
     - /bin/cp shared/utm-forwarder.js $BASEPATH/utm-forwarder.js
     - /bin/cp shared/meta-tracking.js $BASEPATH/meta-tracking.js
     - /bin/cp shared/meta-capi.php $BASEPATH/meta-capi.php
+    - /bin/cp sites/fitmoderno/.htaccess $DEPLOYPATH/.htaccess
     - /bin/cp -R sites/fitmoderno/index.html sites/fitmoderno/cdn-cgi sites/fitmoderno/fonts.googleapis.com sites/fitmoderno/fonts.gstatic.com sites/fitmoderno/use.typekit.net sites/fitmoderno/wp-content sites/fitmoderno/wp-includes $DEPLOYPATH
