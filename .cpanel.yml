@@ -1,6 +1,7 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=$HOME/lp.soufit.com/
+    - echo "Deploying Fit Moderno folder to lp.soufit.com"
+    - export DEPLOYPATH=$HOME/lp.soufit.com/fitmoderno/
     - /bin/mkdir -p $DEPLOYPATH
     - /bin/cp -R index.html cdn-cgi fonts.googleapis.com fonts.gstatic.com use.typekit.net wp-content wp-includes $DEPLOYPATH
