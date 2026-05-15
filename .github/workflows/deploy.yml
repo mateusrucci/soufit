@@ -16,24 +16,20 @@ jobs:
 
       - name: Build deploy folders
         run: |
-          mkdir -p deploy-root deploy-fitmoderno
-          cp utm-forwarder.js deploy-root/
-          cp -R index.html cdn-cgi fonts.googleapis.com fonts.gstatic.com use.typekit.net wp-content wp-includes deploy-fitmoderno/
+          mkdir -p dist/lp.soufit.com/fitmoderno
+          cp shared/utm-forwarder.js dist/lp.soufit.com/
+          cp -R sites/fitmoderno/index.html sites/fitmoderno/cdn-cgi sites/fitmoderno/fonts.googleapis.com sites/fitmoderno/fonts.gstatic.com sites/fitmoderno/use.typekit.net sites/fitmoderno/wp-content sites/fitmoderno/wp-includes dist/lp.soufit.com/fitmoderno/
 
-      - name: Deploy central UTM script
+      - name: Deploy lp.soufit.com package
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ${{ secrets.HOSTGATOR_FTP_SERVER }}
           username: ${{ secrets.HOSTGATOR_FTP_USERNAME }}
           password: ${{ secrets.HOSTGATOR_FTP_PASSWORD }}
-          local-dir: ./deploy-root/
+          local-dir: ./dist/lp.soufit.com/
           server-dir: /lp.soufit.com/
-
-      - name: Deploy Fit Moderno page
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
-        with:
-          server: ${{ secrets.HOSTGATOR_FTP_SERVER }}
-          username: ${{ secrets.HOSTGATOR_FTP_USERNAME }}
-          password: ${{ secrets.HOSTGATOR_FTP_PASSWORD }}
-          local-dir: ./deploy-fitmoderno/
-          server-dir: /lp.soufit.com/fitmoderno/
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/.DS_Store
+          dangerous-clean-slate: true
