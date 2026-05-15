@@ -12,6 +12,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
       - name: Pull latest code on cPanel
         env:
           CPANEL_API_TOKEN: ${{ secrets.CPANEL_API_TOKEN }}
@@ -27,3 +30,25 @@ jobs:
           curl --show-error --fail-with-body \
             -H "Authorization: cpanel mate9316:$CPANEL_API_TOKEN" \
             "https://br956.hostgator.com.br:2083/execute/VersionControlDeployment/create?repository_root=/home3/mate9316/lp.soufit.com"
+
+      - name: Publish public files directly
+        env:
+          CPANEL_API_TOKEN: ${{ secrets.CPANEL_API_TOKEN }}
+        run: |
+          publish_file() {
+            local dir="$1"
+            local file="$2"
+            local source="$3"
+
+            curl --show-error --fail-with-body \
+              -H "Authorization: cpanel mate9316:$CPANEL_API_TOKEN" \
+              --data-urlencode "dir=$dir" \
+              --data-urlencode "file=$file" \
+              --data-urlencode "content@$source" \
+              "https://br956.hostgator.com.br:2083/execute/Fileman/save_file_content" >/dev/null
+          }
+
+          publish_file "/home3/mate9316/lp.soufit.com" "utm-forwarder.js" "shared/utm-forwarder.js"
+          publish_file "/home3/mate9316/lp.soufit.com" "meta-tracking.js" "shared/meta-tracking.js"
+          publish_file "/home3/mate9316/lp.soufit.com" "meta-capi.php" "shared/meta-capi.php"
+          publish_file "/home3/mate9316/lp.soufit.com/fitmoderno" "index.html" "sites/fitmoderno/index.html"
