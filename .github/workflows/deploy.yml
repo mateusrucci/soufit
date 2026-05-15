@@ -1,4 +1,4 @@
-name: Deploy lp.soufit.com
+name: Deploy -> HostGator
 
 on:
   push:
@@ -8,28 +8,22 @@ on:
 
 jobs:
   deploy:
+    name: cPanel Git Pull
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Build deploy folders
+      - name: Pull latest code on cPanel
+        env:
+          CPANEL_API_TOKEN: ${{ secrets.CPANEL_API_TOKEN }}
         run: |
-          mkdir -p dist/lp.soufit.com/fitmoderno
-          cp shared/utm-forwarder.js dist/lp.soufit.com/
-          cp -R sites/fitmoderno/index.html sites/fitmoderno/cdn-cgi sites/fitmoderno/fonts.googleapis.com sites/fitmoderno/fonts.gstatic.com sites/fitmoderno/use.typekit.net sites/fitmoderno/wp-content sites/fitmoderno/wp-includes dist/lp.soufit.com/fitmoderno/
+          curl -s --fail \
+            -H "Authorization: cpanel mate9316:$CPANEL_API_TOKEN" \
+            "https://soufit.com:2083/execute/VersionControl/update?repository_root=/home3/mate9316/repositories/lp.soufit.com&branch=main"
 
-      - name: Deploy lp.soufit.com package
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
-        with:
-          server: ${{ secrets.HOSTGATOR_FTP_SERVER }}
-          username: ${{ secrets.HOSTGATOR_FTP_USERNAME }}
-          password: ${{ secrets.HOSTGATOR_FTP_PASSWORD }}
-          local-dir: ./dist/lp.soufit.com/
-          server-dir: ./
-          exclude: |
-            **/.git*
-            **/.git*/**
-            **/.DS_Store
-          dangerous-clean-slate: true
+      - name: Trigger cPanel Git Deploy via API
+        env:
+          CPANEL_API_TOKEN: ${{ secrets.CPANEL_API_TOKEN }}
+        run: |
+          curl -s --fail \
+            -H "Authorization: cpanel mate9316:$CPANEL_API_TOKEN" \
+            "https://soufit.com:2083/execute/VersionControlDeployment/create?repository_root=/home3/mate9316/repositories/lp.soufit.com"
