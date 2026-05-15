@@ -1,0 +1,39 @@
+name: Deploy lp.soufit.com
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Build deploy folders
+        run: |
+          mkdir -p deploy-root deploy-fitmoderno
+          cp utm-forwarder.js deploy-root/
+          cp -R index.html cdn-cgi fonts.googleapis.com fonts.gstatic.com use.typekit.net wp-content wp-includes deploy-fitmoderno/
+
+      - name: Deploy central UTM script
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.HOSTGATOR_FTP_SERVER }}
+          username: ${{ secrets.HOSTGATOR_FTP_USERNAME }}
+          password: ${{ secrets.HOSTGATOR_FTP_PASSWORD }}
+          local-dir: ./deploy-root/
+          server-dir: /lp.soufit.com/
+
+      - name: Deploy Fit Moderno page
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.HOSTGATOR_FTP_SERVER }}
+          username: ${{ secrets.HOSTGATOR_FTP_USERNAME }}
+          password: ${{ secrets.HOSTGATOR_FTP_PASSWORD }}
+          local-dir: ./deploy-fitmoderno/
+          server-dir: /lp.soufit.com/fitmoderno/
