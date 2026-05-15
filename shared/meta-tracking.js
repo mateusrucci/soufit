@@ -210,7 +210,7 @@
                 return;
             }
 
-            track('InitiateCheckout', checkoutDataFromUrl(url), {}, { preferBeacon: true });
+            track('AddToCart', checkoutDataFromUrl(url), {}, { preferBeacon: true });
         }, true);
     }
 
