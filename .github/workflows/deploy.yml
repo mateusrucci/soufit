@@ -77,6 +77,9 @@ jobs:
           # protocolo-magra-em-casa landing
           publish_file "/home3/mate9316/lp.soufit.com/protocolo-magra-em-casa" "index.html" "protocolo-magra-em-casa/index.html"
 
+          # obrigado (thank-you page)
+          publish_file "/home3/mate9316/lp.soufit.com/obrigado" "index.html" "obrigado/index.html"
+
           publish_tree() {
             local source_dir="$1"
             local target_dir="$2"
