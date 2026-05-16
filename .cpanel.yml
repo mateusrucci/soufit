@@ -4,10 +4,16 @@ deployment:
     - echo "Deploying validated lp.soufit.com package"
     - export BASEPATH=$HOME/lp.soufit.com/
     - /bin/rm -f $BASEPATH/index.html
-    - /bin/cp shared/root.htaccess $BASEPATH/.htaccess
-    - /bin/cp shared/robots.txt $BASEPATH/robots.txt
-    - /bin/cp shared/utm-forwarder.js $BASEPATH/utm-forwarder.js
-    - /bin/cp shared/meta-tracking.js $BASEPATH/meta-tracking.js
-    - /bin/cp shared/meta-capi.php $BASEPATH/meta-capi.php
-    - /bin/cp shared/ac-submit.php $BASEPATH/ac-submit.php
-    - /bin/cp shared/ac-form.js $BASEPATH/ac-form.js
+    - /bin/cp lp.soufit.com/shared/root.htaccess $BASEPATH/.htaccess
+    - /bin/cp lp.soufit.com/shared/robots.txt $BASEPATH/robots.txt
+    - /bin/cp lp.soufit.com/shared/utm-forwarder.js $BASEPATH/utm-forwarder.js
+    - /bin/cp lp.soufit.com/shared/meta-tracking.js $BASEPATH/meta-tracking.js
+    - /bin/cp lp.soufit.com/shared/meta-capi.php $BASEPATH/meta-capi.php
+    - /bin/cp lp.soufit.com/shared/ac-submit.php $BASEPATH/ac-submit.php
+    - /bin/cp lp.soufit.com/shared/ac-form.js $BASEPATH/ac-form.js
+    - /bin/mkdir -p $BASEPATH/protocolo-magra-em-casa
+    - /bin/cp lp.soufit.com/protocolo-magra-em-casa/index.html $BASEPATH/protocolo-magra-em-casa/index.html
+    - /bin/rm -rf $BASEPATH/protocolo-magra-em-casa/wp-content $BASEPATH/protocolo-magra-em-casa/wp-includes $BASEPATH/protocolo-magra-em-casa/use.typekit.net
+    - /bin/cp -R lp.soufit.com/protocolo-magra-em-casa/wp-content $BASEPATH/protocolo-magra-em-casa/wp-content
+    - /bin/cp -R lp.soufit.com/protocolo-magra-em-casa/wp-includes $BASEPATH/protocolo-magra-em-casa/wp-includes
+    - /bin/cp -R lp.soufit.com/protocolo-magra-em-casa/use.typekit.net $BASEPATH/protocolo-magra-em-casa/use.typekit.net

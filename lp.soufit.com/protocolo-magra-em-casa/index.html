@@ -80,49 +80,128 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <meta name="msapplication-TileImage" content="https://lp.soufitoficial.com/wp-content/uploads/2025/11/cropped-Frame-389fvc-270x270.png" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />  <script src="/ac-form.js" defer></script>
 <style id="soufit-custom">
-/* Scroll suave global */
 html { scroll-behavior: smooth; }
 body { overflow-x: hidden; }
 
-/* Hero: layout 2 colunas no desktop para o formulário aparecer acima da dobra */
-@media (min-width: 768px) {
-  .elementor-element-1779b60 > .e-con-inner {
-    display: grid !important;
-    grid-template-columns: 1.1fr 0.9fr !important;
-    grid-template-rows: auto 1fr !important;
-    column-gap: 40px !important;
-    align-items: start !important;
-  }
-  .elementor-element-e61fef9 {
-    grid-column: 1 !important; grid-row: 1 !important;
-    max-width: 100% !important; width: 100% !important; flex: none !important;
-  }
-  .elementor-element-878cbbb {
-    grid-column: 1 !important; grid-row: 2 !important;
-    max-width: 100% !important; width: 100% !important; flex: none !important;
-  }
-  .elementor-element-18ad252 {
-    grid-column: 2 !important; grid-row: 1 / span 2 !important;
-    max-width: 100% !important; width: 100% !important; flex: none !important;
-    align-self: center !important;
-  }
+.elementor-element-66f3eda,
+.elementor-element-7494942 {
+  --min-height: 88px !important;
+  min-height: 88px !important;
+  background: #000 !important;
 }
 
-/* Mobile: form aparece antes dos bullets (acima da dobra) */
-@media (max-width: 767px) {
-  .elementor-element-1779b60 > .e-con-inner {
-    display: flex !important;
-    flex-direction: column !important;
-  }
-  .elementor-element-e61fef9  { order: 1 !important; }
-  .elementor-element-18ad252  { order: 2 !important; }
-  .elementor-element-878cbbb  { order: 3 !important; }
+.elementor-element-e0498e9 .elementor-icon svg,
+.elementor-element-c57879d .elementor-icon svg {
+  width: min(220px, 60vw) !important;
+  height: auto !important;
+  max-height: 72px !important;
 }
 
-/* Suprime qualquer indicador de step que o Elementor tente renderizar */
+.elementor-element-1779b60 {
+  --min-height: auto !important;
+  --margin-top: 0px !important;
+  --padding-top: clamp(48px, 7vw, 92px) !important;
+  --padding-bottom: clamp(320px, 34vw, 560px) !important;
+}
+
+.elementor-element-1779b60 > .e-con-inner {
+  width: min(1160px, calc(100% - 40px)) !important;
+  margin-inline: auto !important;
+}
+
+.elementor-element-e61fef9 {
+  max-width: 500px !important;
+  gap: 22px !important;
+}
+
+.elementor-element-6536525 {
+  max-width: 500px !important;
+}
+
+.elementor-element-6536525 .elementor-heading-title {
+  overflow-wrap: anywhere;
+}
+
+.elementor-element-878cbbb {
+  gap: 14px !important;
+}
+
+.elementor-element-878cbbb .elementor-icon-list-item,
+.elementor-element-3976bb2 .elementor-icon-list-item {
+  align-items: flex-start !important;
+  gap: 12px !important;
+}
+
+.elementor-element-878cbbb .elementor-icon-list-icon,
+.elementor-element-3976bb2 .elementor-icon-list-icon {
+  flex: 0 0 38px !important;
+  margin-top: 2px !important;
+}
+
+.elementor-element-878cbbb .elementor-icon-list-icon svg,
+.elementor-element-3976bb2 .elementor-icon-list-icon svg {
+  width: 38px !important;
+  height: 38px !important;
+}
+
+.elementor-element-18ad252,
+.soufit-bottom-form {
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(107, 107, 107, 0.35);
+  border-radius: 18px;
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.08);
+  padding: 18px !important;
+}
+
+.elementor-form-fields-wrapper {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 12px !important;
+}
+
+.elementor-field-group {
+  min-width: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+.elementor-field-group-name,
+.elementor-field-group-message {
+  flex: 1 1 calc(50% - 6px) !important;
+}
+
+.elementor-field-group-email,
+.e-form__buttons {
+  flex: 1 1 100% !important;
+}
+
+.elementor-field-label {
+  display: block !important;
+  margin-bottom: 6px !important;
+  font-family: "Archivo", Arial, sans-serif !important;
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  line-height: 1.2 !important;
+  color: #111 !important;
+}
+
+.elementor-field-textual {
+  width: 100% !important;
+  min-height: 46px !important;
+  border: 1px solid rgba(107, 107, 107, 0.45) !important;
+  border-radius: 999px !important;
+  background: #fff !important;
+  color: #111 !important;
+  padding: 10px 16px !important;
+  font-family: "Archivo", Arial, sans-serif !important;
+  font-size: 15px !important;
+}
+
+.elementor-button {
+  min-height: 54px !important;
+  white-space: normal !important;
+}
+
 .e-form__indicators { display: none !important; }
-
-/* Garante que os steps (se existirem) ficam todos visíveis */
 .e-form__step {
   display: block !important;
   visibility: visible !important;
@@ -131,24 +210,336 @@ body { overflow-x: hidden; }
   overflow: visible !important;
 }
 
-/* Evita overflow escondido quebrando o scroll */
-.elementor-element-1779b60,
-.elementor-element-1779b60 .e-con-inner { overflow: visible !important; }
+.elementor-element-b5b15b4 {
+  --min-height: auto !important;
+  --padding-top: clamp(56px, 8vw, 110px) !important;
+  --padding-bottom: clamp(320px, 34vw, 560px) !important;
+}
+
+.elementor-element-b5b15b4 > .e-con-inner {
+  width: min(1160px, calc(100% - 40px)) !important;
+  margin-inline: auto !important;
+  display: flex !important;
+  align-items: flex-start !important;
+}
+
+.elementor-element-6140c95 {
+  max-width: 580px !important;
+  margin-left: auto !important;
+  background: rgba(255, 255, 255, 0.78);
+  border-radius: 18px;
+  padding: 28px !important;
+}
+
+.elementor-element-f08cffd p {
+  margin-bottom: 0 !important;
+}
+
+@media (min-width: 768px) {
+  .elementor-element-1779b60 {
+    background-position: calc(100% + 640px) bottom !important;
+    background-size: cover !important;
+  }
+
+  .elementor-element-e61fef9 {
+    display: grid !important;
+    grid-template-columns: minmax(0, 500px) !important;
+    grid-template-rows: auto auto auto !important;
+    align-items: start !important;
+    row-gap: 20px !important;
+    width: min(500px, 46%) !important;
+    max-width: 500px !important;
+  }
+
+  .elementor-element-6536525 {
+    grid-column: 1 !important;
+    grid-row: 1 !important;
+  }
+
+  .elementor-element-878cbbb {
+    grid-column: 1 !important;
+    grid-row: 3 !important;
+  }
+
+  .elementor-element-18ad252 {
+    grid-column: 1 !important;
+    grid-row: 2 !important;
+    max-width: 460px !important;
+    width: 100% !important;
+    align-self: start !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .elementor-element-66f3eda,
+  .elementor-element-7494942 {
+    --min-height: 72px !important;
+    min-height: 72px !important;
+  }
+
+  .elementor-element-e0498e9 .elementor-icon svg,
+  .elementor-element-c57879d .elementor-icon svg {
+    width: min(170px, 56vw) !important;
+    max-height: 58px !important;
+  }
+
+  .elementor-element-1779b60 {
+    --margin-top: 0px !important;
+    --padding-top: 36px !important;
+    --padding-bottom: 430px !important;
+    --padding-left: 20px !important;
+    --padding-right: 20px !important;
+  }
+
+  .elementor-element-1779b60 > .e-con-inner,
+  .elementor-element-b5b15b4 > .e-con-inner {
+    width: 100% !important;
+  }
+
+  .elementor-element-e61fef9 {
+    max-width: 100% !important;
+  }
+
+  .elementor-element-18ad252 {
+    order: 2 !important;
+    width: 100% !important;
+    margin-top: 4px !important;
+  }
+
+  .elementor-element-878cbbb {
+    order: 3 !important;
+  }
+
+  .elementor-field-group-name,
+  .elementor-field-group-message {
+    flex-basis: 100% !important;
+  }
+
+  .elementor-element-b5b15b4 {
+    --padding-top: 44px !important;
+    --padding-bottom: 440px !important;
+    --padding-left: 20px !important;
+    --padding-right: 20px !important;
+  }
+
+  .elementor-element-b5b15b4 > .e-con-inner {
+    display: block !important;
+  }
+
+  .elementor-element-6140c95 {
+    max-width: 100% !important;
+    margin-left: 0 !important;
+    padding: 22px !important;
+  }
+}
+
+/* Match the original WordPress landing hero: headline -> bullets -> form. */
+.elementor-element-66f3eda {
+  position: absolute !important;
+  inset: 0 0 auto 0 !important;
+  z-index: 10 !important;
+  background: transparent !important;
+  min-height: 100px !important;
+  --min-height: 100px !important;
+  pointer-events: none;
+}
+
+.elementor-element-66f3eda > .e-con-inner {
+  width: min(1140px, calc(100% - 40px)) !important;
+  margin-inline: auto !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  pointer-events: auto;
+}
+
+.elementor-element-e0498e9 .elementor-icon svg {
+  width: 100px !important;
+  height: auto !important;
+  max-height: none !important;
+}
+
+.soufit-top-cta .elementor-button {
+  min-height: 58px !important;
+  padding: 8px 8px 8px 28px !important;
+  border: 1px solid #6b6b6b !important;
+  border-radius: 999px !important;
+  background: linear-gradient(90deg, #769600 0%, #a1c41d 100%) !important;
+  color: #fff !important;
+  fill: #fff !important;
+  font-family: "Archivo", Arial, sans-serif !important;
+  font-size: 16px !important;
+  font-weight: 400 !important;
+  text-decoration: none !important;
+}
+
+.soufit-top-cta .elementor-button-content-wrapper {
+  display: flex !important;
+  align-items: center !important;
+  gap: 28px !important;
+}
+
+.soufit-top-cta .elementor-button-icon {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 42px !important;
+  height: 42px !important;
+  border: 1px solid rgba(255,255,255,.85) !important;
+  border-radius: 50% !important;
+}
+
+.elementor-element-6536525 h1 {
+  display: none !important;
+}
+
+.elementor-element-18ad252 {
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+}
+
+.elementor-element-18ad252 .elementor-form-fields-wrapper {
+  gap: 14px 12px !important;
+}
+
+.elementor-element-18ad252 .elementor-field-label {
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  margin-bottom: 8px !important;
+}
+
+.elementor-element-18ad252 .elementor-field-textual {
+  min-height: 48px !important;
+}
+
+@media (min-width: 768px) {
+  .elementor-element-1779b60 {
+    --min-height: 1024px !important;
+    min-height: 1024px !important;
+    --margin-top: 0px !important;
+    --padding-top: 150px !important;
+    --padding-bottom: 150px !important;
+    background-position: center bottom !important;
+    background-size: cover !important;
+  }
+
+  .elementor-element-1779b60 > .e-con-inner {
+    width: min(1140px, calc(100% - 40px)) !important;
+  }
+
+  .elementor-element-e61fef9 {
+    display: grid !important;
+    grid-template-columns: minmax(0, 456px) !important;
+    grid-template-rows: auto auto auto !important;
+    row-gap: 40px !important;
+    width: 456px !important;
+    max-width: 456px !important;
+  }
+
+  .elementor-element-6536525 {
+    grid-row: 1 !important;
+    width: 387px !important;
+    max-width: 387px !important;
+  }
+
+  .elementor-element-6536525 h3.elementor-heading-title {
+    font-family: "obviously-narrow", "Archivo", Arial, sans-serif !important;
+    font-size: 50px !important;
+    font-weight: 600 !important;
+    line-height: 55px !important;
+    color: #000 !important;
+    opacity: 1 !important;
+    margin: 0 !important;
+  }
+
+  .elementor-element-878cbbb {
+    grid-row: 2 !important;
+    gap: 30px !important;
+  }
+
+  .elementor-element-18ad252 {
+    grid-row: 3 !important;
+    width: 456px !important;
+    max-width: 456px !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .elementor-element-66f3eda {
+    min-height: 70px !important;
+    --min-height: 70px !important;
+  }
+
+  .elementor-element-66f3eda > .e-con-inner {
+    width: calc(100% - 20px) !important;
+  }
+
+  .elementor-element-e0498e9 .elementor-icon svg {
+    width: 75px !important;
+  }
+
+  .soufit-top-cta .elementor-button {
+    min-height: 44px !important;
+    padding: 6px 6px 6px 20px !important;
+    font-size: 13px !important;
+  }
+
+  .soufit-top-cta .elementor-button-content-wrapper {
+    gap: 16px !important;
+  }
+
+  .soufit-top-cta .elementor-button-icon {
+    width: 32px !important;
+    height: 32px !important;
+  }
+
+  .elementor-element-1779b60 {
+    --min-height: 1370px !important;
+    min-height: 1370px !important;
+    --padding-top: 130px !important;
+    --padding-bottom: 520px !important;
+    --padding-left: 20px !important;
+    --padding-right: 20px !important;
+    background-position: bottom center !important;
+    background-size: 100% auto !important;
+  }
+
+  .elementor-element-6536525 {
+    width: 335px !important;
+    max-width: 335px !important;
+  }
+
+  .elementor-element-6536525 h3.elementor-heading-title {
+    font-family: "obviously-narrow", "Archivo", Arial, sans-serif !important;
+    font-size: 45px !important;
+    font-weight: 600 !important;
+    line-height: 1.1em !important;
+    color: #000 !important;
+    opacity: 1 !important;
+    margin: 0 !important;
+  }
+
+  .elementor-element-878cbbb {
+    order: 2 !important;
+    gap: 20px !important;
+  }
+
+  .elementor-element-18ad252 {
+    order: 3 !important;
+    width: 335px !important;
+    max-width: 335px !important;
+    margin-top: 0 !important;
+  }
+
+  .elementor-element-18ad252 .elementor-field-group-name,
+  .elementor-element-18ad252 .elementor-field-group-message {
+    flex: 1 1 calc(50% - 6px) !important;
+  }
+}
 </style>
-<script>
-// Corrige o bug do multi-step form do Elementor:
-// força todos os steps visíveis e remove o indicador de progresso
-document.addEventListener('DOMContentLoaded', function () {
-  document.querySelectorAll('.e-form__step').forEach(function (s) {
-    s.style.cssText = 'display:block!important;visibility:visible!important;opacity:1!important;';
-    s.classList.add('e-form__step--active');
-  });
-  document.querySelectorAll('.e-form__indicators').forEach(function (el) { el.remove(); });
-  document.querySelectorAll('[data-next-button], [data-previous-button]').forEach(function (btn) {
-    btn.style.display = 'none';
-  });
-});
-</script>
 </head>
 <body class="wp-singular page-template page-template-elementor_canvas page page-id-497 wp-embed-responsive wp-theme-hello-elementor hello-elementor-default elementor-default elementor-template-canvas elementor-kit-11 elementor-page elementor-page-497">
 			<div data-elementor-type="wp-page" data-elementor-id="497" class="elementor elementor-497" data-elementor-post-type="page">
@@ -159,10 +550,20 @@ document.addEventListener('DOMContentLoaded', function () {
 			<div class="elementor-icon">
 			<svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" viewBox="0 0 380.92 195.79"><defs><style>      .st0 {        fill: #acc435;      }    </style></defs><g><path class="st0" d="M65.58,71.56c.93.93,2.03,1.39,3.31,1.39h9.48c1.28,0,2.37-.46,3.28-1.39.9-.93,1.36-2.03,1.36-3.31l.07-11.6c0-5.26-1.87-9.74-5.6-13.45-3.73-3.71-8.21-5.57-13.42-5.57h-7.16c-5.21,0-9.69,1.86-13.42,5.57-3.73,3.71-5.6,8.19-5.6,13.45v15.97c0,5.21,1.87,9.69,5.6,13.42,3.73,3.73,8.21,5.6,13.42,5.6h3.58c1.02,0,1.89.36,2.62,1.09.73.73,1.09,1.6,1.09,2.62v47.71c.09,1.5-.53,2.61-1.86,3.31-1.24.71-2.5.71-3.78,0-1.33-.71-1.94-1.81-1.86-3.31v-40.22c0-1.28-.46-2.39-1.39-3.31-.93-.93-2.03-1.39-3.31-1.39h-9.41c-1.28,0-2.39.46-3.31,1.39-.93.93-1.39,2.03-1.39,3.31v37.04c0,5.26,1.87,9.74,5.6,13.45,3.73,3.71,8.21,5.57,13.42,5.57h7.16c5.21,0,9.68-1.86,13.42-5.57,3.73-3.71,5.6-8.19,5.6-13.45v-41.41c0-5.21-1.86-9.67-5.57-13.38-3.71-3.71-8.19-5.57-13.45-5.57h-3.64c-1.02,0-1.89-.37-2.62-1.13-.73-.75-1.09-1.63-1.09-2.65v-22.2c.04-1.02.43-1.88,1.16-2.58.73-.71,1.6-1.06,2.62-1.06s1.88.35,2.58,1.06c.71.71,1.08,1.57,1.13,2.58v14.71c0,1.28.46,2.39,1.39,3.31Z"></path><path class="st0" d="M137.64,135.7c5.21,0,9.68-1.5,13.41-4.5,3.73-3.01,5.6-6.63,5.6-10.88V53.01c0-4.25-1.87-7.87-5.6-10.88-3.73-3-8.2-4.5-13.41-4.5h-27.99c-5.21,0-9.68,1.5-13.41,4.5-3.73,3.01-5.6,6.63-5.6,10.88v67.31c0,4.25,1.87,7.87,5.6,10.88,3.73,3,8.2,4.5,13.41,4.5h27.99ZM113.23,125.89c-1.01,0-1.89-.3-2.62-.89-.73-.59-1.1-1.29-1.1-2.12V50.49c0-.82.37-1.53,1.1-2.15.73-.61,1.6-.91,2.62-.91h20.83c1.01,0,1.89.31,2.62.91.73.61,1.1,1.33,1.1,2.15v72.4c0,.83-.37,1.53-1.1,2.12-.73.59-1.6.89-2.62.89h-20.83Z"></path><path class="st0" d="M183.31,135.7h7.16c5.21,0,9.68-1.5,13.42-4.5,3.73-3,5.6-6.63,5.6-10.88V41.44c0-1.04-.46-1.93-1.39-2.68-.93-.75-2.03-1.13-3.31-1.13h-9.48c-1.28,0-2.39.38-3.31,1.13-.93.75-1.39,1.64-1.39,2.68v81.45c.09,1.21-.51,2.11-1.79,2.68-1.28.57-2.56.57-3.84,0-1.28-.57-1.88-1.46-1.79-2.68V41.44c0-1.04-.46-1.93-1.39-2.68-.93-.75-2.03-1.13-3.31-1.13h-9.48c-1.28,0-2.39.38-3.31,1.13-.93.75-1.39,1.64-1.39,2.68v78.88c0,4.25,1.87,7.88,5.6,10.88,3.73,3,8.2,4.5,13.42,4.5Z"></path><path class="st0" d="M221.83,135.7h9.48c1.28,0,2.39-.38,3.31-1.13.93-.75,1.39-1.64,1.39-2.68v-11.95c.04-1.14.54-2.14,1.49-3,.95-.86,2.13-1.36,3.54-1.5h10.07c1.28,0,2.39-.38,3.31-1.13.93-.75,1.39-1.64,1.39-2.68v-2.2c0-1.04-.46-1.93-1.39-2.68-.93-.75-2.03-1.13-3.31-1.13h-15.11v-58.2h7.42v43.94c0,1.04.46,1.93,1.39,2.68.93.75,2.03,1.13,3.31,1.13h9.48c1.28,0,2.39-.38,3.31-1.13.93-.75,1.39-1.64,1.39-2.68v-49.94c0-1.04-.46-1.93-1.39-2.68-.93-.75-2.03-1.13-3.31-1.13h-35.78c-1.28,0-2.39.38-3.31,1.13-.93.75-1.39,1.64-1.39,2.68v90.46c0,1.04.46,1.93,1.39,2.68.93.75,2.03,1.13,3.31,1.13Z"></path><path class="st0" d="M287.29,37.63h-16.1c-1.28,0-2.38.48-3.28,1.43-.91.95-1.36,2.08-1.36,3.4v2.78c0,1.09.3,2.05.89,2.89.6.84,1.38,1.42,2.35,1.73v73.61c-.97.32-1.76.89-2.35,1.73-.6.84-.89,1.8-.89,2.89v2.79c0,1.31.45,2.45,1.36,3.4.9.95,2,1.43,3.28,1.43h16.1c1.28,0,2.39-.48,3.31-1.43.93-.95,1.39-2.08,1.39-3.4v-2.79c0-1.04-.31-1.99-.93-2.85-.62-.86-1.41-1.45-2.39-1.77V49.86c.97-.32,1.77-.91,2.39-1.77.62-.86.93-1.81.93-2.85v-2.78c0-1.31-.46-2.45-1.39-3.4-.93-.95-2.03-1.43-3.31-1.43Z"></path><path class="st0" d="M341.89,39.02c-.93-.93-2.03-1.39-3.31-1.39h-37.64c-1.28,0-2.39.46-3.31,1.39-.93.93-1.39,2.03-1.39,3.31v7.29c0,1.28.46,2.39,1.39,3.31.93.93,2.03,1.39,3.31,1.39h9.34v92.63c-.97.31-1.77.88-2.39,1.72-.62.84-.93,1.77-.93,2.78v2.72c0,1.28.46,2.39,1.39,3.31.93.93,2.03,1.39,3.31,1.39h16.1c1.28,0,2.39-.46,3.31-1.39.93-.93,1.39-2.03,1.39-3.31v-2.72c0-1.02-.31-1.94-.93-2.78-.62-.84-1.41-1.41-2.39-1.72V54.33h9.41c1.28,0,2.39-.46,3.31-1.39.93-.93,1.39-2.03,1.39-3.31v-7.29c0-1.28-.46-2.39-1.39-3.31Z"></path></g><path class="st0" d="M190.9,172.67c-10.52,0-21.14-1.21-31.74-3.62-28.3-6.44-46.55-19.15-47.31-19.68-2.49-1.76-3.09-5.2-1.33-7.69,1.76-2.49,5.2-3.09,7.69-1.34h0c.17.12,17.53,12.14,43.83,18.04,15.31,3.43,30.64,4.15,45.56,2.13,18.63-2.52,36.72-9.35,53.77-20.3,2.57-1.65,5.98-.9,7.63,1.66,1.65,2.57.9,5.98-1.66,7.63-18.51,11.88-38.21,19.28-58.55,21.99-5.91.79-11.88,1.18-17.88,1.18Z"></path></svg>			</div>
 		</div>
-						</div>
-				
-					</div>
+							</div>
+					
+				<div class="soufit-top-cta">
+					<a class="elementor-button elementor-button-link elementor-size-sm" href="#form">
+						<span class="elementor-button-content-wrapper">
+							<span class="elementor-button-text">Adquirir agora</span>
+							<span class="elementor-button-icon" aria-hidden="true">
+								<svg xmlns="http://www.w3.org/2000/svg" width="14" height="15" viewBox="0 0 14 15" fill="none"><path d="M1 6.36377C0.447715 6.36377 4.82823e-08 6.81148 0 7.36377C-4.82823e-08 7.91605 0.447715 8.36377 1 8.36377L1 7.36377L1 6.36377ZM13.4404 8.07088C13.831 7.68035 13.831 7.04719 13.4404 6.65666L7.07648 0.292702C6.68596 -0.0978222 6.05279 -0.0978222 5.66227 0.292702C5.27174 0.683226 5.27174 1.31639 5.66227 1.70692L11.3191 7.36377L5.66227 13.0206C5.27174 13.4111 5.27174 14.0443 5.66227 14.4348C6.05279 14.8254 6.68595 14.8254 7.07648 14.4348L13.4404 8.07088ZM1 7.36377L1 8.36377L12.7333 8.36377L12.7333 7.36377L12.7333 6.36377L1 6.36377Z" fill="white"></path></svg>
+							</span>
+						</span>
+					</a>
 				</div>
+						</div>
+					</div>
 		<div class="elementor-element elementor-element-1779b60 e-flex e-con-boxed e-con e-parent" data-id="1779b60" data-element_type="container" data-e-type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
 					<div class="e-con-inner">
 		<div class="elementor-element elementor-element-e61fef9 e-con-full e-flex e-con e-child" data-id="e61fef9" data-element_type="container" data-e-type="container">
@@ -296,7 +697,7 @@ document.addEventListener('DOMContentLoaded', function () {
 		<div class="elementor-element elementor-element-f9edc5f e-flex e-con-boxed e-con e-parent" data-id="f9edc5f" data-element_type="container" data-e-type="container">
 					<div class="e-con-inner">
 				<div class="elementor-element elementor-element-4ff8fc5 elementor-widget elementor-widget-heading" data-id="4ff8fc5" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
-					<h2 class="elementor-heading-title elementor-size-default">O que dizem sobre as <span class="desq">nossas receitas</span></h2>				</div>
+					<h2 class="elementor-heading-title elementor-size-default">O que dizem sobre o <span class="desq">Protocolo Magra em Casa</span></h2>				</div>
 				<div class="elementor-element elementor-element-71f7a52 elementor-arrows-position-inside elementor-widget elementor-widget-n-carousel" data-id="71f7a52" data-element_type="widget" data-e-type="widget" data-settings="{&quot;carousel_items&quot;:[{&quot;slide_title&quot;:&quot;Slide #1&quot;,&quot;_id&quot;:&quot;c35200d&quot;},{&quot;slide_title&quot;:&quot;Slide #1&quot;,&quot;_id&quot;:&quot;77b956a&quot;},{&quot;slide_title&quot;:&quot;Slide #1&quot;,&quot;_id&quot;:&quot;5016466&quot;},{&quot;slide_title&quot;:&quot;Slide #1&quot;,&quot;_id&quot;:&quot;202c93c&quot;},{&quot;slide_title&quot;:&quot;Slide #1&quot;,&quot;_id&quot;:&quot;d86ad26&quot;}],&quot;image_spacing_custom&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:20,&quot;sizes&quot;:[]},&quot;slides_to_show_tablet&quot;:&quot;2&quot;,&quot;slides_to_show_mobile&quot;:&quot;1&quot;,&quot;autoplay&quot;:&quot;yes&quot;,&quot;autoplay_speed&quot;:5000,&quot;pause_on_hover&quot;:&quot;yes&quot;,&quot;pause_on_interaction&quot;:&quot;yes&quot;,&quot;infinite&quot;:&quot;yes&quot;,&quot;speed&quot;:500,&quot;offset_sides&quot;:&quot;none&quot;,&quot;arrows&quot;:&quot;yes&quot;,&quot;image_spacing_custom_tablet&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:[]},&quot;image_spacing_custom_mobile&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:[]}}" data-widget_type="nested-carousel.default">
 							<div class="e-n-carousel swiper" role="region" aria-roledescription="carousel" aria-label="Carousel" dir="ltr">
 			<div class="swiper-wrapper" aria-live="off">
@@ -469,7 +870,9 @@ var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false
 <script src="wp-includes/js/dist/hooks.min_ver_dd5603f07f9220ed27f1.js" id="wp-hooks-js"></script>
 <script src="wp-includes/js/dist/i18n.min_ver_c26c3dc7bed366793375.js" id="wp-i18n-js"></script>
 <script id="wp-i18n-js-after">
-wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
+if ( window.wp && window.wp.i18n ) {
+	wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
+}
 //# sourceURL=wp-i18n-js-after
 </script>
 <script id="elementor-pro-frontend-js-before">

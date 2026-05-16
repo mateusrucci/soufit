@@ -15,6 +15,15 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Validate Protocolo Magra assets
+        run: |
+          test -f lp.soufit.com/protocolo-magra-em-casa/index.html
+          test -d lp.soufit.com/protocolo-magra-em-casa/wp-content/plugins
+          test -d lp.soufit.com/protocolo-magra-em-casa/wp-content/themes
+          test -d lp.soufit.com/protocolo-magra-em-casa/wp-content/uploads
+          test -d lp.soufit.com/protocolo-magra-em-casa/wp-includes
+          test -d lp.soufit.com/protocolo-magra-em-casa/use.typekit.net
+
       - name: Pull latest code on cPanel
         env:
           CPANEL_API_TOKEN: ${{ secrets.CPANEL_API_TOKEN }}
@@ -31,7 +40,7 @@ jobs:
             -H "Authorization: cpanel mate9316:$CPANEL_API_TOKEN" \
             "https://br956.hostgator.com.br:2083/execute/VersionControlDeployment/create?repository_root=/home3/mate9316/lp.soufit.com"
 
-      - name: Publish shared + HTML files
+      - name: Publish shared + entry HTML files
         env:
           CPANEL_API_TOKEN: ${{ secrets.CPANEL_API_TOKEN }}
         run: |
@@ -45,17 +54,18 @@ jobs:
               "https://br956.hostgator.com.br:2083/execute/Fileman/save_file_content" >/dev/null
           }
 
-          # Shared scripts → raiz pública (o git pull deixa em shared/, precisam estar na raiz)
-          publish_file "/home3/mate9316/lp.soufit.com" "utm-forwarder.js"  "shared/utm-forwarder.js"
-          publish_file "/home3/mate9316/lp.soufit.com" "meta-tracking.js"  "shared/meta-tracking.js"
-          publish_file "/home3/mate9316/lp.soufit.com" "meta-capi.php"     "shared/meta-capi.php"
-          publish_file "/home3/mate9316/lp.soufit.com" "ac-submit.php"     "shared/ac-submit.php"
-          publish_file "/home3/mate9316/lp.soufit.com" "ac-form.js"        "shared/ac-form.js"
-          publish_file "/home3/mate9316/lp.soufit.com" ".htaccess"         "shared/root.htaccess"
-          publish_file "/home3/mate9316/lp.soufit.com" "robots.txt"        "shared/robots.txt"
+          # Shared scripts -> raiz publica (o git pull deixa em lp.soufit.com/shared/, precisam estar na raiz)
+          publish_file "/home3/mate9316/lp.soufit.com" "utm-forwarder.js"  "lp.soufit.com/shared/utm-forwarder.js"
+          publish_file "/home3/mate9316/lp.soufit.com" "meta-tracking.js"  "lp.soufit.com/shared/meta-tracking.js"
+          publish_file "/home3/mate9316/lp.soufit.com" "meta-capi.php"     "lp.soufit.com/shared/meta-capi.php"
+          publish_file "/home3/mate9316/lp.soufit.com" "ac-submit.php"     "lp.soufit.com/shared/ac-submit.php"
+          publish_file "/home3/mate9316/lp.soufit.com" "ac-form.js"        "lp.soufit.com/shared/ac-form.js"
+          publish_file "/home3/mate9316/lp.soufit.com" ".htaccess"         "lp.soufit.com/shared/root.htaccess"
+          publish_file "/home3/mate9316/lp.soufit.com" "robots.txt"        "lp.soufit.com/shared/robots.txt"
 
-          # HTMLs das landings (git pull já posiciona os assets; só o HTML precisa ser garantido)
-          publish_file "/home3/mate9316/lp.soufit.com/fitmoderno"             ".htaccess"  "fitmoderno/.htaccess"
-          publish_file "/home3/mate9316/lp.soufit.com/fitmoderno"             "index.html" "fitmoderno/index.html"
-          publish_file "/home3/mate9316/lp.soufit.com/protocolo-magra-em-casa" "index.html" "protocolo-magra-em-casa/index.html"
-          publish_file "/home3/mate9316/lp.soufit.com/protocolo-magra-em-casa-obg"               "index.html" "protocolo-magra-em-casa-obg/index.html"
+          # HTMLs das landings. Os assets de protocolo-magra-em-casa sao publicados
+          # pelo Git Deploy do cPanel via .cpanel.yml para evitar 404 em CSS/JS/imagens.
+          publish_file "/home3/mate9316/lp.soufit.com/fitmoderno"             ".htaccess"  "lp.soufit.com/fitmoderno/.htaccess"
+          publish_file "/home3/mate9316/lp.soufit.com/fitmoderno"             "index.html" "lp.soufit.com/fitmoderno/index.html"
+          publish_file "/home3/mate9316/lp.soufit.com/protocolo-magra-em-casa" "index.html" "lp.soufit.com/protocolo-magra-em-casa/index.html"
+          publish_file "/home3/mate9316/lp.soufit.com/protocolo-magra-em-casa-obg"               "index.html" "lp.soufit.com/protocolo-magra-em-casa-obg/index.html"
