@@ -31,15 +31,12 @@ jobs:
             -H "Authorization: cpanel mate9316:$CPANEL_API_TOKEN" \
             "https://br956.hostgator.com.br:2083/execute/VersionControlDeployment/create?repository_root=/home3/mate9316/lp.soufit.com"
 
-      - name: Publish shared public files
+      - name: Publish shared + HTML files
         env:
           CPANEL_API_TOKEN: ${{ secrets.CPANEL_API_TOKEN }}
         run: |
           publish_file() {
-            local dir="$1"
-            local file="$2"
-            local source="$3"
-
+            local dir="$1" file="$2" source="$3"
             curl --show-error --fail-with-body \
               -H "Authorization: cpanel mate9316:$CPANEL_API_TOKEN" \
               --data-urlencode "dir=$dir" \
@@ -48,19 +45,7 @@ jobs:
               "https://br956.hostgator.com.br:2083/execute/Fileman/save_file_content" >/dev/null
           }
 
-          upload_file() {
-            local dir="$1"
-            local file="$2"
-            local source="$3"
-
-            curl --show-error --fail-with-body \
-              -H "Authorization: cpanel mate9316:$CPANEL_API_TOKEN" \
-              -F "dir=$dir" \
-              -F "file=@$source;filename=$file" \
-              "https://br956.hostgator.com.br:2083/execute/Fileman/upload_files" >/dev/null
-          }
-
-          # Shared scripts (copied to domain root)
+          # Shared scripts → raiz pública (o git pull deixa em shared/, precisam estar na raiz)
           publish_file "/home3/mate9316/lp.soufit.com" "utm-forwarder.js"  "shared/utm-forwarder.js"
           publish_file "/home3/mate9316/lp.soufit.com" "meta-tracking.js"  "shared/meta-tracking.js"
           publish_file "/home3/mate9316/lp.soufit.com" "meta-capi.php"     "shared/meta-capi.php"
@@ -69,38 +54,8 @@ jobs:
           publish_file "/home3/mate9316/lp.soufit.com" ".htaccess"         "shared/root.htaccess"
           publish_file "/home3/mate9316/lp.soufit.com" "robots.txt"        "shared/robots.txt"
 
-          # fitmoderno landing — files are already in place via git pull;
-          # only re-publish the index.html and .htaccess so they're always fresh
-          publish_file "/home3/mate9316/lp.soufit.com/fitmoderno" ".htaccess"  "fitmoderno/.htaccess"
-          publish_file "/home3/mate9316/lp.soufit.com/fitmoderno" "index.html" "fitmoderno/index.html"
-
-          # protocolo-magra-em-casa landing
+          # HTMLs das landings (git pull já posiciona os assets; só o HTML precisa ser garantido)
+          publish_file "/home3/mate9316/lp.soufit.com/fitmoderno"             ".htaccess"  "fitmoderno/.htaccess"
+          publish_file "/home3/mate9316/lp.soufit.com/fitmoderno"             "index.html" "fitmoderno/index.html"
           publish_file "/home3/mate9316/lp.soufit.com/protocolo-magra-em-casa" "index.html" "protocolo-magra-em-casa/index.html"
-
-          # obrigado (thank-you page)
-          publish_file "/home3/mate9316/lp.soufit.com/obrigado" "index.html" "obrigado/index.html"
-
-          publish_tree() {
-            local source_dir="$1"
-            local target_dir="$2"
-
-            find "$source_dir" -type f | while IFS= read -r source; do
-              local rel="${source#$source_dir/}"
-              local dir="$target_dir/$(dirname "$rel")"
-              local file
-              file="$(basename "$rel")"
-              upload_file "$dir" "$file" "$source"
-            done
-          }
-
-          # Binary assets for fitmoderno
-          publish_tree "fitmoderno/use.typekit.net"       "/home3/mate9316/lp.soufit.com/fitmoderno/use.typekit.net"
-          publish_tree "fitmoderno/fonts.googleapis.com"  "/home3/mate9316/lp.soufit.com/fitmoderno/fonts.googleapis.com"
-          publish_tree "fitmoderno/fonts.gstatic.com"     "/home3/mate9316/lp.soufit.com/fitmoderno/fonts.gstatic.com"
-          publish_tree "fitmoderno/wp-content/uploads"    "/home3/mate9316/lp.soufit.com/fitmoderno/wp-content/uploads"
-
-          # Binary assets for protocolo-magra-em-casa
-          publish_tree "protocolo-magra-em-casa/use.typekit.net"      "/home3/mate9316/lp.soufit.com/protocolo-magra-em-casa/use.typekit.net"
-          publish_tree "protocolo-magra-em-casa/fonts.googleapis.com" "/home3/mate9316/lp.soufit.com/protocolo-magra-em-casa/fonts.googleapis.com"
-          publish_tree "protocolo-magra-em-casa/fonts.gstatic.com"    "/home3/mate9316/lp.soufit.com/protocolo-magra-em-casa/fonts.gstatic.com"
-          publish_tree "protocolo-magra-em-casa/wp-content/uploads"   "/home3/mate9316/lp.soufit.com/protocolo-magra-em-casa/wp-content/uploads"
+          publish_file "/home3/mate9316/lp.soufit.com/obrigado"               "index.html" "obrigado/index.html"
