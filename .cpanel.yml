@@ -11,9 +11,7 @@ deployment:
     - /bin/cp lp.soufit.com/shared/meta-capi.php $BASEPATH/meta-capi.php
     - /bin/cp lp.soufit.com/shared/ac-submit.php $BASEPATH/ac-submit.php
     - /bin/cp lp.soufit.com/shared/ac-form.js $BASEPATH/ac-form.js
-    - /bin/mkdir -p $BASEPATH/protocolo-magra-em-casa
+    - /bin/mkdir -p $BASEPATH/protocolo-magra-em-casa/wp-content
     - /bin/cp lp.soufit.com/protocolo-magra-em-casa/index.html $BASEPATH/protocolo-magra-em-casa/index.html
-    - /bin/rm -rf $BASEPATH/protocolo-magra-em-casa/wp-content $BASEPATH/protocolo-magra-em-casa/wp-includes $BASEPATH/protocolo-magra-em-casa/use.typekit.net
-    - /bin/cp -R lp.soufit.com/protocolo-magra-em-casa/wp-content $BASEPATH/protocolo-magra-em-casa/wp-content
-    - /bin/cp -R lp.soufit.com/protocolo-magra-em-casa/wp-includes $BASEPATH/protocolo-magra-em-casa/wp-includes
-    - /bin/cp -R lp.soufit.com/protocolo-magra-em-casa/use.typekit.net $BASEPATH/protocolo-magra-em-casa/use.typekit.net
+    - /bin/rm -rf $BASEPATH/protocolo-magra-em-casa/wp-content/plugins $BASEPATH/protocolo-magra-em-casa/wp-content/themes $BASEPATH/protocolo-magra-em-casa/wp-includes $BASEPATH/protocolo-magra-em-casa/use.typekit.net
+    - /bin/cp -R lp.soufit.com/protocolo-magra-em-casa/wp-content/uploads $BASEPATH/protocolo-magra-em-casa/wp-content/uploads

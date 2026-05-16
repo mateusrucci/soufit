@@ -18,11 +18,7 @@ jobs:
       - name: Validate Protocolo Magra assets
         run: |
           test -f lp.soufit.com/protocolo-magra-em-casa/index.html
-          test -d lp.soufit.com/protocolo-magra-em-casa/wp-content/plugins
-          test -d lp.soufit.com/protocolo-magra-em-casa/wp-content/themes
           test -d lp.soufit.com/protocolo-magra-em-casa/wp-content/uploads
-          test -d lp.soufit.com/protocolo-magra-em-casa/wp-includes
-          test -d lp.soufit.com/protocolo-magra-em-casa/use.typekit.net
 
       - name: Pull latest code on cPanel
         env:
