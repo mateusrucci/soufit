@@ -58,4 +58,4 @@ jobs:
           publish_file "/home3/mate9316/lp.soufit.com/fitmoderno"             ".htaccess"  "fitmoderno/.htaccess"
           publish_file "/home3/mate9316/lp.soufit.com/fitmoderno"             "index.html" "fitmoderno/index.html"
           publish_file "/home3/mate9316/lp.soufit.com/protocolo-magra-em-casa" "index.html" "protocolo-magra-em-casa/index.html"
-          publish_file "/home3/mate9316/lp.soufit.com/obrigado"               "index.html" "obrigado/index.html"
+          publish_file "/home3/mate9316/lp.soufit.com/protocolo-magra-em-casa-obg"               "index.html" "protocolo-magra-em-casa-obg/index.html"

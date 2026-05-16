@@ -75,7 +75,7 @@
     .then(function (r) { return r.json(); })
     .then(function (res) {
       if (res.status === 'ok') {
-        window.location.href = '/obrigado/';
+        window.location.href = '/protocolo-magra-em-casa-obg/';
       } else {
         throw new Error(res.message || 'Erro desconhecido');
       }
