@@ -18,8 +18,8 @@
     html { scroll-behavior: smooth; }
     body {
       font-family: "Archivo", Arial, sans-serif;
-      background: #0f1117;
-      color: #fff;
+      background: #f4f1dc;
+      color: #111;
       -webkit-font-smoothing: antialiased;
       overflow-x: hidden;
     }
@@ -28,11 +28,13 @@
     :root {
       --green:   #a1c41d;
       --green-d: #769600;
-      --dark:    #0f1117;
-      --dark2:   #171b24;
-      --dark3:   #1e2330;
+      --dark:    #000000;
+      --cream:   #f4f1dc;
+      --cream2:  #ebe8cf;
+      --line:    rgba(17,17,17,.12);
+      --card:    rgba(255,255,255,.78);
       --white:   #ffffff;
-      --muted:   rgba(255,255,255,.65);
+      --muted:   rgba(17,17,17,.68);
       --font-display: "obviously-narrow", "Archivo", Arial, sans-serif;
       --font-body:    "Archivo", Arial, sans-serif;
     }
@@ -48,7 +50,7 @@
     h3 { font-size: clamp(1.1rem, 3vw, 1.5rem); font-weight: 600; }
 
     /* ── Utilitários ── */
-    .container { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+    .container { max-width: 1160px; margin: 0 auto; padding: 0 24px; }
     .desq { color: var(--green); font-style: normal; }
 
     /* ─────────────────────────────────────────────
@@ -58,55 +60,96 @@
       background: var(--dark);
       border-bottom: 1px solid rgba(255,255,255,.08);
       padding: 0 24px;
-      min-height: 72px;
+      min-height: 88px;
       display: flex;
       align-items: center;
       justify-content: center;
     }
-    header svg { width: 110px; height: auto; display: inline-block; }
+    .topbar {
+      width: min(1160px, 100%);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+    header svg { width: min(180px, 44vw); height: auto; display: inline-block; }
+    .header-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 42px;
+      padding: 11px 20px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #769600 0%, #a1c41d 100%);
+      color: #fff;
+      font-size: 14px;
+      font-weight: 800;
+      text-decoration: none;
+      white-space: nowrap;
+    }
 
     /* ─────────────────────────────────────────────
        SEÇÃO 1 — CONFIRMAÇÃO
     ───────────────────────────────────────────── */
     .s-confirm {
-      background: var(--dark2);
-      padding: 56px 0 48px;
-      text-align: center;
-      border-bottom: 1px solid rgba(255,255,255,.06);
+      position: relative;
+      isolation: isolate;
+      min-height: clamp(620px, 76vh, 760px);
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      background:
+        linear-gradient(90deg, rgba(244,241,220,1) 0%, rgba(244,241,220,.98) 38%, rgba(244,241,220,.64) 58%, rgba(244,241,220,.22) 100%),
+        url("../protocolo-magra-em-casa/wp-content/uploads/2026/04/Frame-2xa-copiar.webp") right center / cover no-repeat;
+      padding: clamp(56px, 8vw, 96px) 0 clamp(64px, 8vw, 110px);
+      text-align: left;
+      border-bottom: 1px solid var(--line);
     }
+    .s-confirm::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0 0;
+      height: 36%;
+      z-index: -1;
+      background: linear-gradient(180deg, rgba(244,241,220,0) 0%, rgba(244,241,220,.96) 78%);
+      pointer-events: none;
+    }
+    .confirm-copy { max-width: 560px; }
     .confirm-badge {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: rgba(161,196,29,.12);
-      border: 1px solid rgba(161,196,29,.3);
-      color: var(--green);
-      font-size: .8rem;
-      font-weight: 600;
+      background: rgba(161,196,29,.18);
+      border: 1px solid rgba(118,150,0,.28);
+      color: #4d6400;
+      font-size: .82rem;
+      font-weight: 800;
       letter-spacing: .08em;
       text-transform: uppercase;
-      padding: 6px 16px;
+      padding: 9px 17px;
       border-radius: 999px;
       margin-bottom: 24px;
     }
     .s-confirm h1 {
       font-family: var(--font-display);
-      font-size: clamp(2rem, 5.5vw, 3rem);
+      font-size: clamp(3.2rem, 8vw, 6.6rem);
       font-weight: 700;
-      line-height: 1.1;
-      margin-bottom: 16px;
+      line-height: .92;
+      color: #111;
+      margin-bottom: 22px;
+      text-transform: uppercase;
     }
     .s-confirm p {
       color: var(--muted);
-      font-size: 1rem;
-      line-height: 1.6;
-      max-width: 480px;
-      margin: 0 auto 10px;
+      font-size: clamp(1rem, 1.5vw, 1.18rem);
+      line-height: 1.55;
+      max-width: 520px;
+      margin: 0 0 10px;
     }
     .spam-tip {
       display: inline-block;
-      font-size: .78rem;
-      color: rgba(255,255,255,.35);
+      font-size: .84rem;
+      color: rgba(17,17,17,.5);
       margin-top: 4px;
     }
 
@@ -114,8 +157,8 @@
        SEÇÃO 2 — BRIDGE
     ───────────────────────────────────────────── */
     .s-bridge {
-      background: var(--dark);
-      padding: 52px 0 44px;
+      background: #111;
+      padding: 58px 0 52px;
       text-align: center;
       border-bottom: 1px solid rgba(255,255,255,.06);
     }
@@ -125,7 +168,7 @@
       font-weight: 600;
       letter-spacing: .1em;
       text-transform: uppercase;
-      color: var(--muted);
+      color: rgba(255,255,255,.62);
       margin-bottom: 14px;
     }
     .s-bridge h2 {
@@ -135,9 +178,10 @@
       line-height: 1.15;
       max-width: 600px;
       margin: 0 auto 12px;
+      color: #fff;
     }
     .s-bridge .subtitle {
-      color: var(--muted);
+      color: rgba(255,255,255,.68);
       font-size: .95rem;
       line-height: 1.6;
       max-width: 520px;
@@ -148,16 +192,19 @@
        SEÇÃO 3 — PRODUTO
     ───────────────────────────────────────────── */
     .s-product {
-      background: var(--dark2);
-      padding: 0 0 56px;
+      background:
+        linear-gradient(180deg, #111 0%, #111 110px, var(--cream) 110px, var(--cream) 100%);
+      padding: 0 0 64px;
     }
 
     /* Card principal */
     .product-card {
-      background: var(--dark3);
-      border: 1px solid rgba(255,255,255,.08);
-      border-radius: 16px;
-      padding: 36px 32px;
+      background: var(--card);
+      border: 1px solid rgba(17,17,17,.12);
+      border-radius: 18px;
+      box-shadow: 0 24px 70px rgba(17,17,17,.12);
+      backdrop-filter: blur(10px);
+      padding: clamp(28px, 5vw, 46px);
       margin-bottom: 32px;
     }
     @media (max-width: 600px) {
@@ -174,10 +221,12 @@
     }
     .product-card h3 {
       font-family: var(--font-display);
-      font-size: clamp(1.3rem, 3.5vw, 1.9rem);
+      font-size: clamp(2rem, 4vw, 3.2rem);
       font-weight: 700;
-      line-height: 1.2;
+      line-height: .98;
       margin-bottom: 24px;
+      color: #111;
+      text-transform: uppercase;
     }
 
     /* Benefícios */
@@ -188,7 +237,7 @@
       gap: 12px;
       font-size: .95rem;
       line-height: 1.5;
-      color: rgba(255,255,255,.88);
+      color: rgba(17,17,17,.82);
     }
     .benefits li .icon {
       flex-shrink: 0;
@@ -215,11 +264,11 @@
     }
     .promise-item {
       background: rgba(161,196,29,.08);
-      border: 1px solid rgba(161,196,29,.18);
+      border: 1px solid rgba(118,150,0,.18);
       border-radius: 10px;
       padding: 12px 14px;
       font-size: .82rem;
-      color: var(--white);
+      color: #111;
       line-height: 1.4;
     }
     .promise-item strong {
@@ -238,7 +287,7 @@
       align-items: center;
       gap: 8px;
       font-size: .82rem;
-      color: var(--muted);
+      color: rgba(17,17,17,.62);
       margin-bottom: 24px;
     }
     .stars { color: #f5a623; letter-spacing: 1px; }
@@ -267,7 +316,7 @@
     .btn-cta svg { vertical-align: middle; margin-left: 8px; }
     .cta-sub {
       font-size: .74rem;
-      color: rgba(255,255,255,.35);
+      color: rgba(17,17,17,.48);
       margin-top: 10px;
       text-align: center;
     }
@@ -275,7 +324,7 @@
     /* Divider */
     .divider {
       height: 1px;
-      background: rgba(255,255,255,.07);
+      background: rgba(17,17,17,.1);
       margin: 40px 0;
     }
 
@@ -283,7 +332,7 @@
        FOOTER
     ───────────────────────────────────────────── */
     footer {
-      background: var(--dark);
+      background: #000;
       border-top: 1px solid rgba(255,255,255,.06);
       padding: 28px 0;
       text-align: center;
@@ -292,6 +341,32 @@
     footer p {
       font-size: .74rem;
       color: rgba(255,255,255,.3);
+    }
+
+    @media (max-width: 820px) {
+      header { min-height: 76px; padding: 0 18px; }
+      header svg { width: min(150px, 48vw); }
+      .header-cta { display: none; }
+
+      .s-confirm {
+        min-height: auto;
+        align-items: flex-start;
+        background:
+          linear-gradient(180deg, rgba(244,241,220,1) 0%, rgba(244,241,220,.96) 48%, rgba(244,241,220,.82) 100%),
+          url("../protocolo-magra-em-casa/wp-content/uploads/2026/04/LP-Ebook-protocolo-magra-em-casa-mb1e-copiar.webp") center bottom / min(94vw, 430px) auto no-repeat;
+        padding: 42px 0 min(84vw, 390px);
+        text-align: left;
+      }
+      .confirm-copy { max-width: 100%; }
+      .s-confirm h1 { font-size: clamp(3.05rem, 17vw, 4.9rem); }
+      .s-confirm p { font-size: 1rem; }
+      .s-bridge { padding: 44px 0 38px; }
+      .s-product {
+        background: linear-gradient(180deg, #111 0%, #111 80px, var(--cream) 80px, var(--cream) 100%);
+        padding-bottom: 48px;
+      }
+      .product-card { border-radius: 14px; }
+      .promises { grid-template-columns: 1fr; }
     }
   </style>
 
@@ -302,18 +377,22 @@
 
   <!-- ── HEADER ─────────────────────────────── -->
   <header>
-    <a href="https://lp.soufit.com/">
+    <div class="topbar">
+    <a href="https://lp.soufit.com/protocolo-magra-em-casa/">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380.92 195.79" aria-label="SouFit">
         <defs><style>.st0{fill:#acc435}</style></defs>
         <g><path class="st0" d="M65.58,71.56c.93.93,2.03,1.39,3.31,1.39h9.48c1.28,0,2.37-.46,3.28-1.39.9-.93,1.36-2.03,1.36-3.31l.07-11.6c0-5.26-1.87-9.74-5.6-13.45-3.73-3.71-8.21-5.57-13.42-5.57h-7.16c-5.21,0-9.69,1.86-13.42,5.57-3.73,3.71-5.6,8.19-5.6,13.45v15.97c0,5.21,1.87,9.69,5.6,13.42,3.73,3.73,8.21,5.6,13.42,5.6h3.58c1.02,0,1.89.36,2.62,1.09.73.73,1.09,1.6,1.09,2.62v47.71c.09,1.5-.53,2.61-1.86,3.31-1.24.71-2.5.71-3.78,0-1.33-.71-1.94-1.81-1.86-3.31v-40.22c0-1.28-.46-2.39-1.39-3.31-.93-.93-2.03-1.39-3.31-1.39h-9.41c-1.28,0-2.39.46-3.31,1.39-.93.93-1.39,2.03-1.39,3.31v37.04c0,5.26,1.87,9.74,5.6,13.45,3.73,3.71,8.21,5.57,13.42,5.57h7.16c5.21,0,9.68-1.86,13.42-5.57,3.73-3.71,5.6-8.19,5.6-13.45v-41.41c0-5.21-1.86-9.67-5.57-13.38-3.71-3.71-8.19-5.57-13.45-5.57h-3.64c-1.02,0-1.89-.37-2.62-1.13-.73-.75-1.09-1.63-1.09-2.65v-22.2c.04-1.02.43-1.88,1.16-2.58.73-.71,1.6-1.06,2.62-1.06s1.88.35,2.58,1.06c.71.71,1.08,1.57,1.13,2.58v14.71c0,1.28.46,2.39,1.39,3.31Z"/><path class="st0" d="M137.64,135.7c5.21,0,9.68-1.5,13.41-4.5,3.73-3.01,5.6-6.63,5.6-10.88V53.01c0-4.25-1.87-7.87-5.6-10.88-3.73-3-8.2-4.5-13.41-4.5h-27.99c-5.21,0-9.68,1.5-13.41,4.5-3.73,3.01-5.6,6.63-5.6,10.88v67.31c0,4.25,1.87,7.87,5.6,10.88,3.73,3,8.2,4.5,13.41,4.5h27.99ZM113.23,125.89c-1.01,0-1.89-.3-2.62-.89-.73-.59-1.1-1.29-1.1-2.12V50.49c0-.82.37-1.53,1.1-2.15.73-.61,1.6-.91,2.62-.91h20.83c1.01,0,1.89.31,2.62.91.73.61,1.1,1.33,1.1,2.15v72.4c0,.83-.37,1.53-1.1,2.12-.73.59-1.6.89-2.62.89h-20.83Z"/><path class="st0" d="M183.31,135.7h7.16c5.21,0,9.68-1.5,13.42-4.5,3.73-3,5.6-6.63,5.6-10.88V41.44c0-1.04-.46-1.93-1.39-2.68-.93-.75-2.03-1.13-3.31-1.13h-9.48c-1.28,0-2.39.38-3.31,1.13-.93.75-1.39,1.64-1.39,2.68v81.45c.09,1.21-.51,2.11-1.79,2.68-1.28.57-2.56.57-3.84,0-1.28-.57-1.88-1.46-1.79-2.68V41.44c0-1.04-.46-1.93-1.39-2.68-.93-.75-2.03-1.13-3.31-1.13h-9.48c-1.28,0-2.39.38-3.31,1.13-.93.75-1.39,1.64-1.39,2.68v78.88c0,4.25,1.87,7.88,5.6,10.88,3.73,3,8.2,4.5,13.42,4.5Z"/><path class="st0" d="M221.83,135.7h9.48c1.28,0,2.39-.38,3.31-1.13.93-.75,1.39-1.64,1.39-2.68v-11.95c.04-1.14.54-2.14,1.49-3,.95-.86,2.13-1.36,3.54-1.5h10.07c1.28,0,2.39-.38,3.31-1.13.93-.75,1.39-1.64,1.39-2.68v-2.2c0-1.04-.46-1.93-1.39-2.68-.93-.75-2.03-1.13-3.31-1.13h-15.11v-58.2h7.42v43.94c0,1.04.46,1.93,1.39,2.68.93.75,2.03,1.13,3.31,1.13h9.48c1.28,0,2.39-.38,3.31-1.13.93-.75,1.39-1.64,1.39-2.68v-49.94c0-1.04-.46-1.93-1.39-2.68-.93-.75-2.03-1.13-3.31-1.13h-35.78c-1.28,0-2.39.38-3.31,1.13-.93.75-1.39,1.64-1.39,2.68v90.46c0,1.04.46,1.93,1.39,2.68.93.75,2.03,1.13,3.31,1.13Z"/><path class="st0" d="M287.29,37.63h-16.1c-1.28,0-2.38.48-3.28,1.43-.91.95-1.36,2.08-1.36,3.4v2.78c0,1.09.3,2.05.89,2.89.6.84,1.38,1.42,2.35,1.73v73.61c-.97.32-1.76.89-2.35,1.73-.6.84-.89,1.8-.89,2.89v2.79c0,1.31.45,2.45,1.36,3.4.9.95,2,1.43,3.28,1.43h16.1c1.28,0,2.39-.48,3.31-1.43.93-.95,1.39-2.08,1.39-3.4v-2.79c0-1.04-.31-1.99-.93-2.85-.62-.86-1.41-1.45-2.39-1.77V49.86c.97-.32,1.77-.91,2.39-1.77.62-.86.93-1.81.93-2.85v-2.78c0-1.31-.46-2.45-1.39-3.4-.93-.95-2.03-1.43-3.31-1.43Z"/><path class="st0" d="M341.89,39.02c-.93-.93-2.03-1.39-3.31-1.39h-37.64c-1.28,0-2.39.46-3.31,1.39-.93.93-1.39,2.03-1.39,3.31v7.29c0,1.28.46,2.39,1.39,3.31.93.93,2.03,1.39,3.31,1.39h9.34v92.63c-.97.31-1.77.88-2.39,1.72-.62.84-.93,1.77-.93,2.78v2.72c0,1.28.46,2.39,1.39,3.31.93.93,2.03,1.39,3.31,1.39h16.1c1.28,0,2.39-.46,3.31-1.39.93-.93,1.39-2.03,1.39-3.31v-2.72c0-1.02-.31-1.94-.93-2.78-.62-.84-1.41-1.41-2.39-1.72V54.33h9.41c1.28,0,2.39-.46,3.31-1.39.93-.93,1.39-2.03,1.39-3.31v-7.29c0-1.28-.46-2.39-1.39-3.31Z"/></g>
         <path class="st0" d="M190.9,172.67c-10.52,0-21.14-1.21-31.74-3.62-28.3-6.44-46.55-19.15-47.31-19.68-2.49-1.76-3.09-5.2-1.33-7.69,1.76-2.49,5.2-3.09,7.69-1.34h0c.17.12,17.53,12.14,43.83,18.04,15.31,3.43,30.64,4.15,45.56,2.13,18.63-2.52,36.72-9.35,53.77-20.3,2.57-1.65,5.98-.9,7.63,1.66,1.65,2.57.9,5.98-1.66,7.63-18.51,11.88-38.21,19.28-58.55,21.99-5.91.79-11.88,1.18-17.88,1.18Z"/>
       </svg>
     </a>
+    <a class="header-cta" href="https://soufit.com/produtos/1/fit-moderno" target="_blank" rel="noopener">Acelerar resultado</a>
+    </div>
   </header>
 
   <!-- ── CONFIRMAÇÃO ────────────────────────── -->
   <section class="s-confirm">
     <div class="container">
+      <div class="confirm-copy">
       <div class="confirm-badge">
         <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
         Cadastro confirmado
@@ -321,6 +400,7 @@
       <h1>Seu e-book está<br><em class="desq" style="font-style:normal;">a caminho!</em></h1>
       <p>Enviamos o acesso ao <strong>Protocolo Magra em Casa</strong> para o seu e-mail. Confira sua caixa de entrada em instantes.</p>
       <span class="spam-tip">Não encontrou? Verifique a pasta de spam ou promoções.</span>
+      </div>
     </div>
   </section>
 
