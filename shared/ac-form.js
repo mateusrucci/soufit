@@ -75,11 +75,7 @@
     .then(function (r) { return r.json(); })
     .then(function (res) {
       if (res.status === 'ok') {
-        showMessage(form, 'Perfeito! Verifique seu e-mail 💚', false);
-        form.reset();
-        if (btn) { btn.disabled = false; btn.textContent = BTN_LABEL; }
-        // Opcional: redirecionar após 2s
-        // setTimeout(function(){ window.location.href = '/obrigado'; }, 2000);
+        window.location.href = '/obrigado/';
       } else {
         throw new Error(res.message || 'Erro desconhecido');
       }
