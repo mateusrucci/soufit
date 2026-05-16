@@ -14,6 +14,8 @@ deployment:
     - /bin/cp shared/utm-forwarder.js $BASEPATH/utm-forwarder.js
     - /bin/cp shared/meta-tracking.js $BASEPATH/meta-tracking.js
     - /bin/cp shared/meta-capi.php $BASEPATH/meta-capi.php
+    - /bin/cp shared/ac-submit.php $BASEPATH/ac-submit.php
+    - /bin/cp shared/ac-form.js $BASEPATH/ac-form.js
     - /bin/cp sites/fitmoderno/.htaccess $DEPLOYPATH/.htaccess
     - /bin/cp -R sites/fitmoderno/index.html sites/fitmoderno/cdn-cgi sites/fitmoderno/fonts.googleapis.com sites/fitmoderno/fonts.gstatic.com sites/fitmoderno/use.typekit.net sites/fitmoderno/wp-content sites/fitmoderno/wp-includes $DEPLOYPATH
     - /bin/cp -R sites/protocolo-magra-em-casa/index.html sites/protocolo-magra-em-casa/wp-content sites/protocolo-magra-em-casa/wp-includes sites/protocolo-magra-em-casa/fonts.googleapis.com sites/protocolo-magra-em-casa/fonts.gstatic.com sites/protocolo-magra-em-casa/use.typekit.net $DEPLOYPATH_LP
