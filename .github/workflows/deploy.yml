@@ -83,13 +83,15 @@ jobs:
           publish_file "/home3/mate9316/lp.soufit.com" "robots.txt"        "shared/robots.txt"
 
 
-          find fitmoderno -type d | sort | while read -r local_dir; do
-            mkdir_remote "/home3/mate9316/lp.soufit.com/$local_dir"
-          done
+          for site in fitmoderno lp-protocolo-magra-em-casa lp-protocolo-magra-em-casa-obg; do
+            find "$site" -type d | sort | while read -r local_dir; do
+              mkdir_remote "/home3/mate9316/lp.soufit.com/$local_dir"
+            done
 
-          find fitmoderno -type f | sort | while read -r source; do
-            remote_dir="/home3/mate9316/lp.soufit.com/$(dirname "$source")"
-            upload_file "$remote_dir" "$(basename "$source")" "$source"
-          done
+            find "$site" -type f | sort | while read -r source; do
+              remote_dir="/home3/mate9316/lp.soufit.com/$(dirname "$source")"
+              upload_file "$remote_dir" "$(basename "$source")" "$source"
+            done
 
-          publish_file "/home3/mate9316/lp.soufit.com/fitmoderno" "index.html" "fitmoderno/index.html"
+            publish_file "/home3/mate9316/lp.soufit.com/$site" "index.html" "$site/index.html"
+          done

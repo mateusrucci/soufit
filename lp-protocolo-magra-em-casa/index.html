@@ -1,0 +1,567 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Protocolo Magra em Casa | Soufit</title>
+  <meta name="description" content="Baixe gratuitamente o Protocolo Magra em Casa e receba um passo a passo simples para organizar sua rotina de alimentação, hidratação e hábitos em casa.">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <link rel="canonical" href="https://lp.soufit.com/lp-protocolo-magra-em-casa/">
+  <link rel="preload" as="image" href="/lp-protocolo-magra-em-casa/assets/hero-magra-em-casa.webp" fetchpriority="high">
+  <script src="/utm-forwarder.js" defer></script>
+  <script src="/meta-tracking.js" defer></script>
+  <style>
+    :root {
+      --green: #a7ce19;
+      --green-strong: #72921b;
+      --ink: #11140f;
+      --muted: #65705f;
+      --paper: #fbfff2;
+      --white: #ffffff;
+      --line: rgba(17, 20, 15, .12);
+      --shadow: 0 28px 70px rgba(25, 45, 20, .16);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background: #f6f7ef;
+      line-height: 1.5;
+      overflow-x: hidden;
+    }
+    a { color: inherit; }
+    .page { overflow: hidden; }
+    .hero {
+      min-height: 860px;
+      background:
+        radial-gradient(circle at 85% 18%, rgba(167, 206, 25, .22), transparent 30%),
+        linear-gradient(112deg, #0f140d 0%, #16200f 46%, #eef5dd 46.2%, #f7faee 100%);
+      color: var(--white);
+      position: relative;
+    }
+    .wrap {
+      width: calc(100% - 40px);
+      max-width: 1160px;
+      margin: 0 auto;
+    }
+    .nav {
+      height: 92px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+      z-index: 2;
+    }
+    .logo {
+      width: 118px;
+      height: auto;
+      display: block;
+      filter: brightness(1.16);
+    }
+    .nav a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 0 22px;
+      border: 1px solid rgba(255,255,255,.24);
+      border-radius: 999px;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: .01em;
+      color: #f7ffe7;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(420px, .86fr);
+      gap: 60px;
+      align-items: center;
+      padding: 42px 0 88px;
+      position: relative;
+      z-index: 1;
+    }
+    .hero-grid > * { min-width: 0; }
+    .copy { max-width: 590px; }
+    h1 {
+      margin: 0;
+      font-size: clamp(46px, 7vw, 86px);
+      line-height: .9;
+      letter-spacing: -.045em;
+      text-wrap: balance;
+    }
+    h1 span { color: var(--green); }
+    .lead {
+      max-width: 500px;
+      margin: 26px 0 0;
+      color: rgba(255,255,255,.82);
+      font-size: clamp(17px, 1.7vw, 21px);
+    }
+    .hero-points {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin: 34px 0;
+      max-width: 570px;
+    }
+    .point {
+      border: 1px solid rgba(255,255,255,.15);
+      border-radius: 18px;
+      padding: 16px;
+      background: rgba(255,255,255,.06);
+      backdrop-filter: blur(10px);
+      font-size: 14px;
+      color: rgba(255,255,255,.82);
+    }
+    .point strong {
+      display: block;
+      color: var(--white);
+      font-size: 17px;
+      margin-bottom: 4px;
+    }
+    .cta-row {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+    .button {
+      border: 0;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 58px;
+      padding: 0 28px;
+      border-radius: 999px;
+      background: var(--green);
+      color: #10150c;
+      font-weight: 900;
+      font-size: 16px;
+      text-decoration: none;
+      box-shadow: 0 18px 40px rgba(167, 206, 25, .25);
+    }
+    .micro {
+      margin: 0;
+      color: rgba(255,255,255,.7);
+      font-size: 14px;
+    }
+    .visual {
+      position: relative;
+      min-height: 600px;
+      display: grid;
+      align-items: center;
+    }
+    .hero-photo {
+      width: min(620px, 100%);
+      aspect-ratio: 1.03;
+      object-fit: cover;
+      object-position: 63% 50%;
+      border-radius: 34px;
+      box-shadow: var(--shadow);
+      justify-self: end;
+    }
+    .ebook {
+      position: absolute;
+      left: -8px;
+      bottom: 54px;
+      width: 250px;
+      min-height: 330px;
+      border-radius: 18px;
+      padding: 28px 24px;
+      color: #f9ffe7;
+      background:
+        linear-gradient(145deg, rgba(255,255,255,.18), transparent 38%),
+        linear-gradient(160deg, #11180c 0%, #253815 58%, #a7ce19 100%);
+      box-shadow: 0 28px 60px rgba(0,0,0,.28);
+      transform: rotate(-4deg);
+      border: 1px solid rgba(255,255,255,.24);
+    }
+    .ebook small {
+      font-weight: 900;
+      color: var(--green);
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    .ebook b {
+      display: block;
+      font-size: 39px;
+      line-height: .92;
+      letter-spacing: -.04em;
+      margin: 28px 0 18px;
+    }
+    .ebook p { margin: 0; font-weight: 700; color: rgba(255,255,255,.82); }
+    .section {
+      padding: 92px 0;
+      background: #f6f7ef;
+    }
+    .section.alt { background: var(--white); }
+    .split {
+      display: grid;
+      grid-template-columns: .84fr 1.16fr;
+      gap: 56px;
+      align-items: start;
+    }
+    .section h2 {
+      margin: 0;
+      font-size: clamp(34px, 4.6vw, 58px);
+      line-height: .94;
+      letter-spacing: -.04em;
+    }
+    .section h2 span { color: var(--green-strong); }
+    .text {
+      margin: 18px 0 0;
+      color: var(--muted);
+      font-size: 18px;
+      max-width: 610px;
+    }
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+    .card {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 24px;
+      box-shadow: 0 20px 46px rgba(25,45,20,.07);
+    }
+    .card .num {
+      display: inline-grid;
+      place-items: center;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: #e7f6ad;
+      color: #40570a;
+      font-weight: 900;
+      margin-bottom: 20px;
+    }
+    .card h3 {
+      margin: 0 0 8px;
+      font-size: 21px;
+      line-height: 1.1;
+    }
+    .card p { margin: 0; color: var(--muted); }
+    .form-band {
+      padding: 96px 0;
+      color: var(--white);
+      background:
+        radial-gradient(circle at 18% 10%, rgba(167,206,25,.18), transparent 30%),
+        linear-gradient(135deg, #10150c 0%, #182411 100%);
+    }
+    .form-grid {
+      display: grid;
+      grid-template-columns: .95fr 1.05fr;
+      gap: 56px;
+      align-items: center;
+    }
+    .form-box {
+      background: rgba(255,255,255,.98);
+      color: var(--ink);
+      border-radius: 28px;
+      padding: clamp(24px, 4vw, 38px);
+      box-shadow: 0 30px 80px rgba(0,0,0,.28);
+    }
+    .form-box h2 {
+      margin: 0 0 8px;
+      font-size: clamp(30px, 4vw, 46px);
+      line-height: .96;
+      letter-spacing: -.04em;
+    }
+    .form-box p {
+      margin: 0 0 24px;
+      color: var(--muted);
+    }
+    label {
+      display: block;
+      font-weight: 800;
+      font-size: 13px;
+      margin: 16px 0 7px;
+      color: #283022;
+    }
+    input {
+      width: 100%;
+      height: 54px;
+      border: 1px solid rgba(17,20,15,.18);
+      border-radius: 14px;
+      padding: 0 16px;
+      font: inherit;
+      background: #fbfcf8;
+      color: var(--ink);
+      outline: none;
+    }
+    input:focus {
+      border-color: var(--green-strong);
+      box-shadow: 0 0 0 4px rgba(167,206,25,.17);
+    }
+    .checkbox {
+      display: grid;
+      grid-template-columns: 18px 1fr;
+      gap: 10px;
+      align-items: start;
+      margin: 18px 0 22px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .checkbox input {
+      width: 18px;
+      height: 18px;
+      margin: 2px 0 0;
+      accent-color: var(--green);
+    }
+    .form-box .button {
+      width: 100%;
+      min-height: 60px;
+    }
+    .soufit-msg {
+      margin: 14px 0 0;
+      font-size: 14px;
+      font-weight: 800;
+      color: #b23024;
+    }
+    .proof {
+      display: grid;
+      gap: 16px;
+      color: rgba(255,255,255,.82);
+      font-size: 17px;
+    }
+    .proof div {
+      padding: 20px 0;
+      border-bottom: 1px solid rgba(255,255,255,.14);
+    }
+    .proof strong {
+      display: block;
+      color: var(--green);
+      font-size: 26px;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    footer {
+      padding: 34px 0;
+      background: #0f140d;
+      color: rgba(255,255,255,.62);
+      font-size: 13px;
+    }
+    footer .wrap {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    @media (max-width: 900px) {
+      .hero { background: linear-gradient(180deg, #0f140d 0%, #182411 64%, #f6f7ef 64.2%); }
+      .hero { min-height: 0; }
+      .nav { height: 78px; }
+      .hero-grid, .split, .form-grid {
+        grid-template-columns: 1fr;
+        gap: 34px;
+      }
+      .hero-grid { display: block; }
+      .copy { width: 100%; max-width: 100%; }
+      .hero-grid { padding: 20px 0 60px; }
+      h1 { max-width: 100%; font-size: clamp(36px, 9.6vw, 46px); letter-spacing: -.055em; }
+      .lead { max-width: 100%; }
+      .hero-points { grid-template-columns: 1fr; }
+      .visual { min-height: 430px; }
+      .hero-photo {
+        border-radius: 26px;
+        width: 100%;
+        max-height: 460px;
+      }
+      .ebook {
+        width: 190px;
+        min-height: 255px;
+        left: 14px;
+        bottom: 20px;
+        padding: 20px 18px;
+      }
+      .ebook b { font-size: 29px; }
+      .steps { grid-template-columns: 1fr; }
+      .section, .form-band { padding: 64px 0; }
+    }
+    @media (max-width: 560px) {
+      .wrap { width: min(334px, calc(100% - 32px)); }
+      .nav a { display: none; }
+      .logo { width: 105px; }
+      .lead { font-size: 16px; }
+      h1 { font-size: clamp(34px, 9vw, 40px); }
+      .point { padding: 14px; }
+      .visual { min-height: 390px; }
+      .hero-photo { aspect-ratio: .92; }
+      .ebook { transform: rotate(-3deg) scale(.9); transform-origin: left bottom; }
+      footer .wrap { display: block; }
+    }
+  </style>
+</head>
+<body>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1172482898007013&amp;ev=PageView&amp;noscript=1" alt=""></noscript>
+<main class="page">
+  <section class="hero">
+    <div class="wrap">
+      <nav class="nav" aria-label="Topo">
+        <img class="logo" src="/lp-protocolo-magra-em-casa/assets/logo-soufit.svg" alt="Soufit">
+        <a href="#baixar">Baixar protocolo</a>
+      </nav>
+      <div class="hero-grid">
+        <div class="copy">
+          <h1>Receba o <span>Protocolo Magra em Casa</span></h1>
+          <p class="lead">Um guia gratuito para organizar sua rotina com refeições simples, hábitos sustentáveis e um plano prático para começar hoje, sem academia e sem complicar sua semana.</p>
+          <div class="hero-points">
+            <div class="point"><strong>Rotina prática</strong>passos simples para aplicar em casa</div>
+            <div class="point"><strong>Cardápio base</strong>ideias para montar refeições melhores</div>
+            <div class="point"><strong>Checklist diário</strong>hábitos para manter consistência</div>
+          </div>
+          <div class="cta-row">
+            <a class="button" href="#baixar">Quero receber grátis</a>
+            <p class="micro">Entrega imediata no e-mail cadastrado.</p>
+          </div>
+        </div>
+        <div class="visual" aria-hidden="true">
+          <img class="hero-photo" src="/lp-protocolo-magra-em-casa/assets/hero-magra-em-casa.webp" alt="">
+          <div class="ebook">
+            <small>Ebook gratuito</small>
+            <b>Protocolo Magra em Casa</b>
+            <p>Plano de rotina, alimentação e hábitos para começar de forma simples.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section alt">
+    <div class="wrap split">
+      <div>
+        <h2>Um protocolo para sair do “segunda eu começo” e colocar ordem na rotina.</h2>
+        <p class="text">O material foi pensado para mulheres que querem voltar a cuidar do corpo com leveza, sem depender de receitas difíceis ou treinos impossíveis de encaixar no dia.</p>
+      </div>
+      <div class="steps">
+        <article class="card">
+          <span class="num">1</span>
+          <h3>Organize o básico</h3>
+          <p>Entenda o que priorizar no prato, na hidratação e nos horários para reduzir decisões ao longo do dia.</p>
+        </article>
+        <article class="card">
+          <span class="num">2</span>
+          <h3>Monte sua rotina</h3>
+          <p>Use um plano simples para repetir o que funciona e parar de recomeçar toda semana.</p>
+        </article>
+        <article class="card">
+          <span class="num">3</span>
+          <h3>Acompanhe sinais</h3>
+          <p>Tenha clareza sobre energia, fome, sono e constância, sem transformar tudo em cobrança.</p>
+        </article>
+        <article class="card">
+          <span class="num">4</span>
+          <h3>Mantenha o ritmo</h3>
+          <p>Receba um checklist para seguir mesmo nos dias corridos e continuar avançando com realismo.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="form-band" id="baixar">
+    <div class="wrap form-grid">
+      <div>
+        <h2>Baixe o protocolo gratuito e comece em casa.</h2>
+        <p class="lead">Preencha seus dados para receber o material e entrar na lista de conteúdos da Soufit.</p>
+        <div class="proof" aria-label="Benefícios">
+          <div><strong>5 minutos</strong>para entender o passo a passo inicial.</div>
+          <div><strong>100% online</strong>sem instalação, sem pagamento e sem compromisso.</div>
+          <div><strong>Feito para rotina real</strong>com orientações simples para aplicar no dia a dia.</div>
+        </div>
+      </div>
+      <form class="form-box js-lead-form" novalidate>
+        <h2>Receber agora</h2>
+        <p>O acesso será liberado após o cadastro.</p>
+        <input type="hidden" name="tag" value="Ebook - Magra em Casa">
+        <label for="name">Nome</label>
+        <input id="name" name="name" autocomplete="name" placeholder="Seu nome">
+        <label for="email">E-mail</label>
+        <input id="email" name="email" type="email" autocomplete="email" placeholder="voce@email.com" required>
+        <label for="phone">WhatsApp</label>
+        <input id="phone" name="phone" inputmode="tel" autocomplete="tel" placeholder="(00) 00000-0000">
+        <label class="checkbox">
+          <input type="checkbox" name="consent" required>
+          <span>Aceito receber comunicações da Soufit e sei que posso me descadastrar a qualquer momento.</span>
+        </label>
+        <button class="button" type="submit">Liberar meu acesso</button>
+      </form>
+    </div>
+  </section>
+</main>
+<footer>
+  <div class="wrap">
+    <span>Soufit © 2026</span>
+    <span>Conteúdo educativo. Não substitui orientação profissional individualizada.</span>
+  </div>
+</footer>
+<script>
+(function () {
+  var storageKey = 'soufit_tracking_params';
+  var redirectUrl = '/lp-protocolo-magra-em-casa-obg/';
+
+  function utms() {
+    try { return JSON.parse(localStorage.getItem(storageKey) || '{}'); }
+    catch (_) { return {}; }
+  }
+  function message(form, text) {
+    var el = form.querySelector('.soufit-msg');
+    if (!el) {
+      el = document.createElement('p');
+      el.className = 'soufit-msg';
+      form.appendChild(el);
+    }
+    el.textContent = text;
+  }
+  function value(form, name) {
+    var el = form.querySelector('[name="' + name + '"]');
+    return el ? el.value.trim() : '';
+  }
+  document.querySelectorAll('.js-lead-form').forEach(function (form) {
+    form.addEventListener('submit', function (event) {
+      event.preventDefault();
+      var email = value(form, 'email');
+      var consent = form.querySelector('[name="consent"]');
+      if (!email || !/\S+@\S+\.\S+/.test(email)) {
+        message(form, 'Informe um e-mail válido para receber o protocolo.');
+        return;
+      }
+      if (consent && !consent.checked) {
+        message(form, 'Confirme o aceite para continuar.');
+        return;
+      }
+      var button = form.querySelector('button[type="submit"]');
+      if (button) {
+        button.disabled = true;
+        button.textContent = 'Liberando acesso...';
+      }
+      var track = utms();
+      var payload = {
+        name: value(form, 'name'),
+        email: email,
+        phone: value(form, 'phone'),
+        tag: value(form, 'tag'),
+        utm_source: track.utm_source || '',
+        utm_medium: track.utm_medium || '',
+        utm_campaign: track.utm_campaign || '',
+        utm_content: track.utm_content || '',
+        utm_term: track.utm_term || ''
+      };
+      fetch('/ac-submit.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+        keepalive: true
+      }).finally(function () {
+        window.location.href = redirectUrl;
+      });
+    });
+  });
+})();
+</script>
+</body>
+</html>

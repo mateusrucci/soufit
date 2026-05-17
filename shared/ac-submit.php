@@ -8,6 +8,9 @@
 define('AC_URL',     'https://soufit.api-us1.com');
 define('AC_KEY',     '037f32d7d6671a1e927537e8f0bd62cb4783a5b294f7abbbc9c0daf502977a4962ff5a1a');
 define('AC_LIST_ID', 2);
+define('AC_ALLOWED_TAGS', [
+    'Ebook - Magra em Casa',
+]);
 
 // Campos UTM criados no AC (IDs)
 define('AC_FIELDS', [
@@ -33,6 +36,10 @@ if (!$email) { http_response_code(400); echo json_encode(['status'=>'error','mes
 
 $name  = htmlspecialchars(strip_tags(trim($input['name']  ?? '')));
 $phone = htmlspecialchars(strip_tags(trim($input['phone'] ?? '')));
+$tag   = htmlspecialchars(strip_tags(trim($input['tag'] ?? '')));
+if (!in_array($tag, AC_ALLOWED_TAGS, true)) {
+    $tag = '';
+}
 
 $parts     = explode(' ', $name, 2);
 $firstName = $parts[0] ?? '';
@@ -64,6 +71,32 @@ function ac_request(string $method, string $endpoint, ?array $data = null): arra
     return ['code' => $code, 'body' => json_decode($body, true)];
 }
 
+function ac_get_or_create_tag(string $tagName): ?int {
+    $res = ac_request('GET', 'tags?search=' . rawurlencode($tagName));
+    if (($res['code'] ?? 500) < 400 && !empty($res['body']['tags'])) {
+        foreach ($res['body']['tags'] as $item) {
+            if (($item['tag'] ?? '') === $tagName && isset($item['id'])) {
+                return (int)$item['id'];
+            }
+        }
+    }
+
+    $created = ac_request('POST', 'tags', [
+        'tag' => [
+            'tag' => $tagName,
+            'tagType' => 'contact',
+            'description' => 'Lead capturado em lp.soufit.com',
+        ],
+    ]);
+
+    if (($created['code'] ?? 500) >= 400) {
+        error_log('[ac-submit] tag create failed: ' . json_encode($created['body']));
+        return null;
+    }
+
+    return isset($created['body']['tag']['id']) ? (int)$created['body']['tag']['id'] : null;
+}
+
 // 1. Sync contato (cria ou atualiza pelo e-mail)
 $res = ac_request('POST', 'contact/sync', [
     'contact' => [
@@ -93,6 +126,18 @@ if ($contactId) {
             'status'  => 1,
         ]
     ]);
+
+    if ($tag !== '') {
+        $tagId = ac_get_or_create_tag($tag);
+        if ($tagId) {
+            ac_request('POST', 'contactTags', [
+                'contactTag' => [
+                    'contact' => (int)$contactId,
+                    'tag' => $tagId,
+                ],
+            ]);
+        }
+    }
 }
 
 echo json_encode(['status' => 'ok', 'contact_id' => $contactId]);
