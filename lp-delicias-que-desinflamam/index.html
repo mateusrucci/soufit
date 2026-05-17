@@ -511,7 +511,7 @@
           <li><span class="check"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5"/><path d="m8.5 12 2.3 2.3 4.9-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><b>Aprovado por nutricionistas</b> focados em resultados reais e saúde celular.</span></li>
         </ul>
         <form class="js-lead-form" id="form" novalidate>
-          <input type="hidden" name="tag" value="Ebook - Delícias que Desinflamam">
+          <input type="hidden" name="tag" value="Ebook - Delicias que Desinflamam">
           <div class="form-row">
             <div class="field">
               <label for="name">Nome</label>
@@ -681,8 +681,15 @@
           utm_term: data.utm_term || ''
         }),
         keepalive: true
-      }).finally(function () {
+      }).then(function (response) {
+        if (!response.ok) throw new Error('active_campaign_error');
         window.location.href = redirectUrl;
+      }).catch(function () {
+        message(form, 'Nao foi possivel liberar o acesso agora. Tente novamente em instantes.');
+        if (button) {
+          button.disabled = false;
+          button.querySelector('span').textContent = 'Baixar e-book grátis!';
+        }
       });
     });
   });
