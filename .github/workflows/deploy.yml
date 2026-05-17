@@ -57,3 +57,4 @@ jobs:
           publish_file "/home3/mate9316/lp.soufit.com" "robots.txt"        "shared/robots.txt"
 
 
+          publish_file "/home3/mate9316/lp.soufit.com/fitmoderno-2" "index.html" "fitmoderno-2/index.html"

@@ -11,4 +11,6 @@ deployment:
     - /bin/cp shared/meta-capi.php $BASEPATH/meta-capi.php
     - /bin/cp shared/ac-submit.php $BASEPATH/ac-submit.php
     - /bin/cp shared/ac-form.js $BASEPATH/ac-form.js
-
+    - /bin/mkdir -p $BASEPATH/fitmoderno-2
+    - /bin/cp fitmoderno-2/index.html $BASEPATH/fitmoderno-2/index.html
+    - /bin/cp -R fitmoderno-2/assets $BASEPATH/fitmoderno-2/assets
