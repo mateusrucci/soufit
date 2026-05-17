@@ -15,10 +15,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Validate Protocolo Magra assets
-        run: |
-          test -f protocolo-magra-em-casa/index.html
-          test -d protocolo-magra-em-casa/wp-content/uploads
+
 
       - name: Pull latest code on cPanel
         env:
@@ -59,8 +56,4 @@ jobs:
           publish_file "/home3/mate9316/lp.soufit.com" ".htaccess"         "shared/root.htaccess"
           publish_file "/home3/mate9316/lp.soufit.com" "robots.txt"        "shared/robots.txt"
 
-          # HTMLs das landings. Os assets de protocolo-magra-em-casa sao publicados
-          # pelo Git Deploy do cPanel via .cpanel.yml para evitar 404 em CSS/JS/imagens.
 
-          publish_file "/home3/mate9316/lp.soufit.com/protocolo-magra-em-casa" "index.html" "protocolo-magra-em-casa/index.html"
-          publish_file "/home3/mate9316/lp.soufit.com/protocolo-magra-em-casa-obg" "index.html" "protocolo-magra-em-casa-obg/index.html"
