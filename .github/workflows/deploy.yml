@@ -90,3 +90,5 @@ jobs:
             remote_dir="/home3/mate9316/lp.soufit.com/$(dirname "$source")"
             upload_file "$remote_dir" "$(basename "$source")" "$source"
           done
+
+          publish_file "/home3/mate9316/lp.soufit.com/fitmoderno" "index.html" "fitmoderno/index.html"
