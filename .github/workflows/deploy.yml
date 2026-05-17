@@ -61,7 +61,6 @@ jobs:
 
           # HTMLs das landings. Os assets de protocolo-magra-em-casa sao publicados
           # pelo Git Deploy do cPanel via .cpanel.yml para evitar 404 em CSS/JS/imagens.
-          publish_file "/home3/mate9316/lp.soufit.com/fitmoderno"              ".htaccess"  "fitmoderno/.htaccess"
-          publish_file "/home3/mate9316/lp.soufit.com/fitmoderno"              "index.html" "fitmoderno/index.html"
+
           publish_file "/home3/mate9316/lp.soufit.com/protocolo-magra-em-casa" "index.html" "protocolo-magra-em-casa/index.html"
           publish_file "/home3/mate9316/lp.soufit.com/protocolo-magra-em-casa-obg" "index.html" "protocolo-magra-em-casa-obg/index.html"
