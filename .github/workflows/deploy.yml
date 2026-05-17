@@ -68,7 +68,8 @@ jobs:
             curl --show-error --fail-with-body \
               -H "Authorization: cpanel mate9316:$CPANEL_API_TOKEN" \
               -F "dir=$dir" \
-              -F "file=@$source;filename=$file" \
+              -F "overwrite=1" \
+              -F "file-1=@$source;filename=$file" \
               "https://br956.hostgator.com.br:2083/execute/Fileman/upload_files" >/dev/null
           }
 
