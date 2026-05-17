@@ -149,6 +149,7 @@
       font-size: 14px;
       flex-basis: 100%;
     }
+    .mobile-break { display: none; }
     .visual {
       position: relative;
       min-height: 600px;
@@ -389,7 +390,14 @@
       .nav a { display: none; }
       .logo { width: 105px; }
       .lead { font-size: 16px; }
-      h1 { font-size: clamp(34px, 9vw, 40px); }
+      h1 {
+        font-size: clamp(32px, 9vw, 38px);
+        line-height: .94;
+        letter-spacing: -.04em;
+        text-wrap: wrap;
+      }
+      h1 span { display: block; }
+      .mobile-break { display: block; }
       .point { padding: 14px; }
       .visual { min-height: 390px; }
       .hero-photo { aspect-ratio: .92; }
@@ -409,7 +417,7 @@
       </nav>
       <div class="hero-grid">
         <div class="copy">
-          <h1>Receba o <span>Protocolo Magra em Casa</span></h1>
+          <h1>Receba o <span>Protocolo<br class="mobile-break"> Magra em Casa</span></h1>
           <p class="lead">Um guia gratuito para organizar sua rotina com refeições simples, hábitos sustentáveis e um plano prático para começar hoje, sem academia e sem complicar sua semana.</p>
           <div class="hero-points">
             <div class="point"><strong>Rotina prática</strong>passos simples para aplicar em casa</div>
