@@ -37,6 +37,22 @@ jobs:
         env:
           CPANEL_API_TOKEN: ${{ secrets.CPANEL_API_TOKEN }}
         run: |
+          mkdir_remote() {
+            local dir="$1"
+            local parent="${dir%/*}"
+            local name="${dir##*/}"
+            curl --show-error --silent \
+              -H "Authorization: cpanel mate9316:$CPANEL_API_TOKEN" \
+              --get \
+              --data-urlencode "cpanel_jsonapi_user=mate9316" \
+              --data-urlencode "cpanel_jsonapi_apiversion=2" \
+              --data-urlencode "cpanel_jsonapi_module=Fileman" \
+              --data-urlencode "cpanel_jsonapi_func=mkdir" \
+              --data-urlencode "path=$parent" \
+              --data-urlencode "name=$name" \
+              "https://br956.hostgator.com.br:2083/json-api/cpanel" >/dev/null || true
+          }
+
           publish_file() {
             local dir="$1" file="$2" source="$3"
             curl --show-error --fail-with-body \
@@ -45,6 +61,15 @@ jobs:
               --data-urlencode "file=$file" \
               --data-urlencode "content@$source" \
               "https://br956.hostgator.com.br:2083/execute/Fileman/save_file_content" >/dev/null
+          }
+
+          upload_file() {
+            local dir="$1" file="$2" source="$3"
+            curl --show-error --fail-with-body \
+              -H "Authorization: cpanel mate9316:$CPANEL_API_TOKEN" \
+              -F "dir=$dir" \
+              -F "file=@$source;filename=$file" \
+              "https://br956.hostgator.com.br:2083/execute/Fileman/upload_files" >/dev/null
           }
 
           # Shared scripts -> raiz publica (git pull deixa em shared/, precisam estar na raiz)
@@ -57,4 +82,11 @@ jobs:
           publish_file "/home3/mate9316/lp.soufit.com" "robots.txt"        "shared/robots.txt"
 
 
-          publish_file "/home3/mate9316/lp.soufit.com/fitmoderno" "index.html" "fitmoderno/index.html"
+          find fitmoderno -type d | sort | while read -r local_dir; do
+            mkdir_remote "/home3/mate9316/lp.soufit.com/$local_dir"
+          done
+
+          find fitmoderno -type f | sort | while read -r source; do
+            remote_dir="/home3/mate9316/lp.soufit.com/$(dirname "$source")"
+            upload_file "$remote_dir" "$(basename "$source")" "$source"
+          done
