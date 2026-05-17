@@ -9,8 +9,11 @@ define('AC_URL',     'https://soufit.api-us1.com');
 define('AC_KEY',     '037f32d7d6671a1e927537e8f0bd62cb4783a5b294f7abbbc9c0daf502977a4962ff5a1a');
 define('AC_LIST_ID', 2);
 define('AC_ALLOWED_TAGS', [
-    'Ebook - Magra em Casa',
+    'Ebook - Magras em casa',
     'Ebook - Delícias que Desinflamam',
+]);
+define('AC_TAG_IDS', [
+    'Ebook - Magras em casa' => 9,
 ]);
 
 // Campos UTM criados no AC (IDs)
@@ -60,7 +63,7 @@ function ac_request(string $method, string $endpoint, ?array $data = null): arra
     curl_setopt_array($ch, [
         CURLOPT_RETURNTRANSFER => true,
         CURLOPT_CUSTOMREQUEST  => $method,
-        CURLOPT_HTTPHEADER     => ['Api-Token: ' . AC_KEY, 'Content-Type: application/json'],
+        CURLOPT_HTTPHEADER     => ['Api-Token: ' . AC_KEY, 'Accept: application/json', 'Content-Type: application/json'],
         CURLOPT_TIMEOUT        => 10,
     ]);
     if ($data !== null) {
@@ -98,6 +101,36 @@ function ac_get_or_create_tag(string $tagName): ?int {
     return isset($created['body']['tag']['id']) ? (int)$created['body']['tag']['id'] : null;
 }
 
+function ac_get_tag_id(string $tagName): ?int {
+    $knownIds = AC_TAG_IDS;
+    if (isset($knownIds[$tagName])) {
+        return (int)$knownIds[$tagName];
+    }
+
+    return ac_get_or_create_tag($tagName);
+}
+
+function ac_add_contact_tag(int $contactId, int $tagId): bool {
+    $res = ac_request('POST', 'contactTags', [
+        'contactTag' => [
+            'contact' => (string)$contactId,
+            'tag' => (string)$tagId,
+        ],
+    ]);
+
+    if (($res['code'] ?? 500) < 400) {
+        return true;
+    }
+
+    $message = strtolower((string)($res['body']['message'] ?? ''));
+    if (($res['code'] ?? 0) === 422 && strpos($message, 'already') !== false) {
+        return true;
+    }
+
+    error_log('[ac-submit] contact tag failed: ' . json_encode($res['body']));
+    return false;
+}
+
 // 1. Sync contato (cria ou atualiza pelo e-mail)
 $res = ac_request('POST', 'contact/sync', [
     'contact' => [
@@ -129,14 +162,11 @@ if ($contactId) {
     ]);
 
     if ($tag !== '') {
-        $tagId = ac_get_or_create_tag($tag);
-        if ($tagId) {
-            ac_request('POST', 'contactTags', [
-                'contactTag' => [
-                    'contact' => (int)$contactId,
-                    'tag' => $tagId,
-                ],
-            ]);
+        $tagId = ac_get_tag_id($tag);
+        if (!$tagId || !ac_add_contact_tag((int)$contactId, (int)$tagId)) {
+            http_response_code(500);
+            echo json_encode(['status'=>'error','message'=>'Contato salvo, mas a tag nao foi aplicada']);
+            exit;
         }
     }
 }
