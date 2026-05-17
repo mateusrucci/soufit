@@ -26,3 +26,11 @@ deployment:
     - /bin/cp lp-protocolo-magra-em-casa-obg/index.html $BASEPATH/lp-protocolo-magra-em-casa-obg/index.html
     - /bin/rm -rf $BASEPATH/lp-protocolo-magra-em-casa-obg/assets
     - /bin/cp -R lp-protocolo-magra-em-casa-obg/assets $BASEPATH/lp-protocolo-magra-em-casa-obg/assets
+    - /bin/mkdir -p $BASEPATH/lp-delicias-que-desinflamam
+    - /bin/cp lp-delicias-que-desinflamam/index.html $BASEPATH/lp-delicias-que-desinflamam/index.html
+    - /bin/rm -rf $BASEPATH/lp-delicias-que-desinflamam/assets
+    - /bin/cp -R lp-delicias-que-desinflamam/assets $BASEPATH/lp-delicias-que-desinflamam/assets
+    - /bin/mkdir -p $BASEPATH/lp-delicias-que-desinflamam-obg
+    - /bin/cp lp-delicias-que-desinflamam-obg/index.html $BASEPATH/lp-delicias-que-desinflamam-obg/index.html
+    - /bin/rm -rf $BASEPATH/lp-delicias-que-desinflamam-obg/assets
+    - /bin/cp -R lp-delicias-que-desinflamam-obg/assets $BASEPATH/lp-delicias-que-desinflamam-obg/assets

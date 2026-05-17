@@ -1,0 +1,692 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>LP Delícias que Desinflamam | SouFit</title>
+  <meta name="description" content="Baixe gratuitamente o e-book Delícias que Desinflamam com 15 receitas práticas para desinflamar o intestino e emagrecer.">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <link rel="canonical" href="https://lp.soufit.com/lp-delicias-que-desinflamam/">
+  <link rel="preload" as="image" href="/lp-delicias-que-desinflamam/assets/hero-bg.webp" fetchpriority="high">
+  <link rel="stylesheet" href="https://use.typekit.net/dnm0imh.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="/utm-forwarder.js" defer></script>
+  <script src="/meta-tracking.js" defer></script>
+  <style>
+    :root {
+      --green: #a1c41d;
+      --green-dark: #769600;
+      --ink: #020202;
+      --muted: #6b6b6b;
+      --cream: #f5f2de;
+      --paper: #f7ffda;
+      --line: #dfebae;
+      --font-display: "obviously-narrow", "Arial Narrow", "Impact", sans-serif;
+      --font-body: "Archivo", Arial, sans-serif;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: var(--font-body);
+      color: var(--ink);
+      background: var(--paper);
+      overflow-x: hidden;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+    .wrap {
+      width: min(1140px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+    .topbar {
+      height: 100px;
+      border-bottom: 1px solid var(--line);
+      background: rgba(247, 255, 218, .9);
+      position: relative;
+      z-index: 5;
+    }
+    .topbar .wrap {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo { width: 100px; height: auto; }
+    .btn {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      min-height: 58px;
+      padding: 0 74px 0 28px;
+      border: 1px solid var(--muted);
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--green-dark), var(--green));
+      color: #fff;
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 1;
+      cursor: pointer;
+      overflow: hidden;
+      transition: transform .25s ease;
+    }
+    .btn:hover { transform: translateY(-1px); }
+    .btn::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: var(--green);
+      opacity: 0;
+      transition: opacity .3s ease;
+    }
+    .btn:hover::before { opacity: 1; animation: pulse512 1.5s infinite; }
+    .btn span { position: relative; z-index: 1; }
+    .btn .arrow {
+      position: absolute;
+      right: 8px;
+      top: 50%;
+      z-index: 1;
+      width: 42px;
+      height: 42px;
+      transform: translateY(-50%);
+      border: 1px solid #fff;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+    }
+    .btn svg { width: 15px; transition: transform .6s ease; }
+    .btn:hover svg { transform: rotate(360deg); }
+    .hero {
+      min-height: 1090px;
+      margin-top: -100px;
+      padding-top: 185px;
+      background: #f7ffda url("/lp-delicias-que-desinflamam/assets/hero-bg.webp") top center / cover no-repeat;
+      position: relative;
+    }
+    .hero-content { width: 505px; max-width: 100%; }
+    h1, h2 {
+      margin: 0;
+      font-family: var(--font-display);
+      font-weight: 600;
+      letter-spacing: -.02em;
+      color: #000;
+    }
+    h1 {
+      font-size: 50px;
+      line-height: 55px;
+      margin-bottom: 35px;
+    }
+    h1 .green, h2 .green { color: var(--green); }
+    .check-list {
+      display: grid;
+      gap: 17px;
+      margin: 0 0 32px;
+      padding: 0;
+      list-style: none;
+      width: 460px;
+      max-width: 100%;
+      font-size: 16px;
+      line-height: 1.55;
+    }
+    .check-list li {
+      display: grid;
+      grid-template-columns: 34px 1fr;
+      gap: 16px;
+      align-items: start;
+    }
+    .check {
+      width: 35px;
+      height: 35px;
+      border-radius: 12px;
+      background: rgba(161, 196, 29, .1);
+      display: grid;
+      place-items: center;
+      color: var(--green);
+    }
+    .check svg { width: 21px; height: 21px; }
+    form {
+      width: 460px;
+      max-width: 100%;
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    label {
+      display: block;
+      margin: 0 0 15px;
+      font-size: 15px;
+      font-weight: 400;
+      color: #1e1e1e;
+    }
+    .field { margin-bottom: 20px; }
+    input {
+      width: 100%;
+      height: 47px;
+      padding: 0 18px;
+      border: 1px solid var(--muted);
+      border-radius: 999px;
+      background: #fff;
+      color: #000;
+      font: 400 15px var(--font-body);
+      outline: 0;
+    }
+    input:focus { border-color: var(--green-dark); box-shadow: 0 0 0 4px rgba(161,196,29,.15); }
+    .hero .btn { margin-top: 0; min-height: 56px; padding-left: 30px; padding-right: 75px; }
+    .privacy {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      margin-top: 28px;
+      color: #888;
+      font-size: 13px;
+    }
+    .privacy svg { width: 18px; flex: 0 0 18px; }
+    .soufit-msg {
+      margin: 14px 0 0;
+      color: #8a1f16;
+      font-size: 14px;
+      font-weight: 700;
+    }
+    .routine {
+      min-height: 925px;
+      background: #f5f2de url("/lp-delicias-que-desinflamam/assets/routine-bg.webp") top center / cover no-repeat;
+      display: grid;
+      align-items: start;
+    }
+    .routine-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 0;
+      padding-top: 135px;
+    }
+    .routine-copy {
+      grid-column: 2;
+      max-width: 555px;
+      padding-top: 30px;
+    }
+    h2 {
+      font-size: 50px;
+      line-height: 55px;
+      margin-bottom: 30px;
+    }
+    .body-copy {
+      margin: 0 0 30px;
+      font-size: 16px;
+      line-height: 30px;
+      color: #111;
+    }
+    .body-copy p { margin: 0 0 10px; }
+    .feature-list {
+      display: grid;
+      gap: 25px;
+      margin: 0 0 30px;
+      padding: 0;
+      list-style: none;
+      font-size: 16px;
+      line-height: 25px;
+    }
+    .feature-list li {
+      display: grid;
+      grid-template-columns: 50px 1fr;
+      gap: 18px;
+      align-items: center;
+    }
+    .feature-list .check {
+      width: 50px;
+      height: 50px;
+      border-radius: 15px;
+    }
+    .routine-end {
+      margin: 0;
+      font-weight: 700;
+      color: #1a1a1a;
+      line-height: 30px;
+    }
+    .cta-strip {
+      padding: 66px 0 0;
+      background: #f5f2de;
+      text-align: center;
+    }
+    .testimonials {
+      padding: 100px 0 80px;
+      background: #f5f2de;
+    }
+    .testimonials h2 {
+      text-align: center;
+      margin-bottom: 88px;
+    }
+    .carousel-wrap {
+      position: relative;
+      width: min(1080px, calc(100% - 120px));
+      margin: 0 auto;
+      overflow: hidden;
+    }
+    .track {
+      display: flex;
+      gap: 20px;
+      transition: transform .45s ease;
+    }
+    .testimonial {
+      flex: 0 0 calc((100% - 40px) / 3);
+      min-height: 300px;
+      padding: 34px 35px 30px;
+      border: 1px solid rgba(107,107,107,.26);
+      border-radius: 24px;
+      background: rgba(255,255,255,.54);
+    }
+    .person {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 24px;
+    }
+    .person img { width: 50px; height: 50px; border-radius: 50%; }
+    .person strong {
+      display: block;
+      color: #282828;
+      font-size: 18px;
+      margin-bottom: 2px;
+    }
+    .stars { margin: 0; color: #a1c41d; letter-spacing: 1px; }
+    .testimonial p:last-child {
+      margin: 0;
+      font-size: 16px;
+      line-height: 30px;
+      color: #111;
+    }
+    .nav-arrow {
+      position: absolute;
+      top: 120px;
+      width: 46px;
+      height: 46px;
+      border: 0;
+      background: transparent;
+      color: var(--muted);
+      cursor: pointer;
+      z-index: 2;
+    }
+    .nav-arrow svg { width: 45px; height: 45px; }
+    .nav-arrow.prev { left: 0; }
+    .nav-arrow.next { right: 0; }
+    .final {
+      min-height: 895px;
+      padding-top: 0;
+      background: #f7ffda url("/lp-delicias-que-desinflamam/assets/final-bg.webp") top center / cover no-repeat;
+      text-align: center;
+      display: flex;
+      align-items: flex-start;
+    }
+    .final .wrap {
+      padding-top: 0;
+      display: grid;
+      justify-items: center;
+      gap: 36px;
+    }
+    .pill {
+      margin-top: -19px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 39px;
+      padding: 0 20px;
+      border: 1px solid var(--muted);
+      border-radius: 999px;
+      background: #fff;
+      color: #595959;
+      font-size: 14px;
+    }
+    .final h2 {
+      width: min(725px, 100%);
+      margin: 84px 0 0;
+      text-align: center;
+    }
+    .price {
+      margin-top: -20px;
+      display: grid;
+      gap: 0;
+      justify-items: center;
+    }
+    .price s {
+      color: #7b7b7b;
+      font-size: 16px;
+      font-weight: 400;
+    }
+    .price strong {
+      color: #282828;
+      font-size: 50px;
+      line-height: 1.1;
+    }
+    .final-cta {
+      margin-top: -45px;
+      padding: 10px;
+      background: #fff;
+      border-radius: 999px;
+    }
+    footer {
+      min-height: 100px;
+      margin-top: -100px;
+      position: relative;
+      z-index: 2;
+      background: transparent;
+    }
+    footer .wrap {
+      min-height: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    footer .logo { width: 100px; }
+    footer p {
+      margin: 0;
+      color: #101010;
+      font-size: 15px;
+    }
+    @keyframes pulse512 {
+      0% { box-shadow: 0 0 0 0 #cae618; }
+      70% { box-shadow: 0 0 0 10px rgba(255,255,255,0); }
+      100% { box-shadow: 0 0 0 0 rgba(255,255,255,0); }
+    }
+    @media (max-width: 1024px) {
+      .testimonial { flex-basis: calc((100% - 20px) / 2); }
+    }
+    @media (max-width: 767px) {
+      .wrap { width: calc(100% - 40px); }
+      .topbar { height: 70px; }
+      .logo { width: 75px; }
+      .topbar .btn { min-height: 43px; padding: 0 58px 0 17px; font-size: 13px; }
+      .topbar .btn .arrow { width: 34px; height: 34px; right: 5px; }
+      .hero {
+        min-height: 0;
+        margin-top: -70px;
+        padding: 110px 0 470px;
+        background-image: url("/lp-delicias-que-desinflamam/assets/hero-bg-mobile.webp");
+        background-position: bottom center;
+        background-size: 100% auto;
+      }
+      h1, h2 {
+        font-size: 45px;
+        line-height: 1.1;
+      }
+      h1 { margin-bottom: 32px; }
+      .check-list {
+        gap: 14px;
+        margin-bottom: 28px;
+        font-size: 15px;
+      }
+      .check-list li { grid-template-columns: 34px 1fr; gap: 14px; }
+      .form-row { grid-template-columns: 1fr 1fr; }
+      label { margin-bottom: 15px; }
+      input { height: 47px; }
+      .hero .btn { min-height: 55px; padding: 0 68px 0 30px; }
+      .privacy { margin-top: 28px; font-size: 13px; white-space: nowrap; }
+      .routine {
+        min-height: 0;
+        padding: 50px 0 450px;
+        background-image: url("/lp-delicias-que-desinflamam/assets/routine-bg-mobile.webp");
+        background-position: bottom center;
+        background-size: 100% auto;
+        display: block;
+      }
+      .routine-grid { display: block; }
+      .routine-grid { padding-top: 0; }
+      .routine-copy { max-width: 100%; padding-top: 0; }
+      .body-copy { font-size: 16px; line-height: 30px; }
+      .feature-list { gap: 24px; }
+      .cta-strip { padding-top: 48px; }
+      .testimonials { padding: 100px 0 50px; }
+      .testimonials h2 { margin-bottom: 95px; }
+      .carousel-wrap {
+        width: calc(100% - 80px);
+        overflow: hidden;
+      }
+      .testimonial {
+        flex-basis: 100%;
+        min-height: 0;
+        padding: 28px 26px;
+      }
+      .nav-arrow {
+        top: -70px;
+        width: 34px;
+        height: 34px;
+      }
+      .nav-arrow svg { width: 32px; height: 32px; }
+      .nav-arrow.prev { left: -36px; }
+      .nav-arrow.next { right: -36px; }
+      .final {
+        min-height: 715px;
+        background-position: top center;
+      }
+      .final .wrap { gap: 28px; }
+      .pill { margin-top: -20px; }
+      .final h2 { margin-top: 20px; }
+      .price strong { font-size: 50px; }
+      footer {
+        margin-top: -105px;
+      }
+      footer .wrap {
+        justify-content: center;
+        flex-direction: column;
+        text-align: left;
+      }
+      footer .logo { width: 80px; }
+      footer p { width: 280px; font-size: 13px; }
+    }
+    @media (max-width: 430px) {
+      .wrap { width: calc(100% - 32px); }
+      .topbar .wrap { width: calc(100% - 28px); }
+      .topbar .btn { padding-left: 16px; padding-right: 56px; }
+      h1, h2 { font-size: 42px; }
+      .form-row { gap: 10px; }
+      .privacy { font-size: 12px; }
+      .hero { padding-bottom: 445px; }
+      .routine { padding-bottom: 420px; }
+    }
+  </style>
+</head>
+<body>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1172482898007013&amp;ev=PageView&amp;noscript=1" alt=""></noscript>
+<header class="topbar">
+  <div class="wrap">
+    <img class="logo" src="/lp-delicias-que-desinflamam/assets/logo-soufit.svg" alt="SouFit">
+    <a class="btn" href="#form"><span>Adquirir agora</span><i class="arrow" aria-hidden="true"><svg viewBox="0 0 14 15" fill="none"><path d="M1 6.36a1 1 0 0 0 0 2v-2Zm12.44 1.71a1 1 0 0 0 0-1.41L7.08.29a1 1 0 0 0-1.42 1.42l5.66 5.65-5.66 5.66a1 1 0 1 0 1.42 1.41l6.36-6.36ZM1 7.36v1h11.73v-2H1v1Z" fill="white"/></svg></i></a>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-content">
+        <h1>Receitas práticas para <span class="green">desinflamar</span> o <span class="green">intestino</span> e emagrecer!</h1>
+        <ul class="check-list">
+          <li><span class="check"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5"/><path d="m8.5 12 2.3 2.3 4.9-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><b>15 receitas exclusivas</b> para todas as refeições do dia.</span></li>
+          <li><span class="check"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5"/><path d="m8.5 12 2.3 2.3 4.9-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><b>Inclui sobremesas</b> que matam a vontade sem causar picos de insulina.</span></li>
+          <li><span class="check"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5"/><path d="m8.5 12 2.3 2.3 4.9-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><b>Emagreça sem sofrer</b> comendo alimentos que você realmente gosta.</span></li>
+          <li><span class="check"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5"/><path d="m8.5 12 2.3 2.3 4.9-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><b>Aprovado por nutricionistas</b> focados em resultados reais e saúde celular.</span></li>
+        </ul>
+        <form class="js-lead-form" id="form" novalidate>
+          <input type="hidden" name="tag" value="Ebook - Delícias que Desinflamam">
+          <div class="form-row">
+            <div class="field">
+              <label for="name">Nome</label>
+              <input id="name" name="name" autocomplete="name" placeholder="Nome">
+            </div>
+            <div class="field">
+              <label for="phone">WhatsApp</label>
+              <input id="phone" name="phone" inputmode="tel" autocomplete="tel" placeholder="Digite seu Whatsapp">
+            </div>
+          </div>
+          <div class="field">
+            <label for="email">Seu melhor E-mail</label>
+            <input id="email" name="email" type="email" autocomplete="email" placeholder="Digite seu e-mail" required>
+          </div>
+          <button class="btn" type="submit"><span>Baixar e-book grátis!</span><i class="arrow" aria-hidden="true"><svg viewBox="0 0 14 15" fill="none"><path d="M1 6.36a1 1 0 0 0 0 2v-2Zm12.44 1.71a1 1 0 0 0 0-1.41L7.08.29a1 1 0 0 0-1.42 1.42l5.66 5.65-5.66 5.66a1 1 0 1 0 1.42 1.41l6.36-6.36ZM1 7.36v1h11.73v-2H1v1Z" fill="white"/></svg></i></button>
+          <p class="privacy"><svg viewBox="0 0 18 18" fill="none"><path d="M9 15.86A6.86 6.86 0 1 1 9 2.14a6.86 6.86 0 0 1 0 13.72Z" stroke="#888" stroke-width="1.5"/><path d="M9 12.43V9h.86M9.86 12.43H8.14" stroke="#888" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="9" cy="6.43" r=".86" fill="#888"/></svg>Seus dados não serão divulgados. Respeitamos sua caixa de entrada.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section class="routine">
+    <div class="wrap routine-grid">
+      <div class="routine-copy">
+        <h2>Feito para a <span class="green">sua rotina</span>.</h2>
+        <div class="body-copy">
+          <p>A rotina moderna nos empurra para um ciclo vicioso: o excesso de ultraprocessados e açúcar esconde um vilão silencioso: a inflamação crônica. Essa “areia” no seu metabolismo faz com que você se sinta pesada, inchada e sem energia, transformando qualquer tentativa de dieta em um sacrifício sem fim.</p>
+          <p>Por outro lado, ninguém aguenta viver de receitas sem graça e sem sabor. É por isso que o e-book Delícias que Desinflamam foi criado.</p>
+        </div>
+        <ul class="feature-list">
+          <li><span class="check"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5"/><path d="m8.5 12 2.3 2.3 4.9-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><b>Rapidez:</b> Receitas que se encaixam na sua rotina corrida.</span></li>
+          <li><span class="check"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5"/><path d="m8.5 12 2.3 2.3 4.9-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><b>Ciência:</b> Pratos elaborados com ingredientes que funcionam como "faxineiros" das suas células.</span></li>
+          <li><span class="check"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5"/><path d="m8.5 12 2.3 2.3 4.9-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><b>Aval Especializado:</b> Combinações sugeridas por especialistas para garantir que você absorva apenas as partes certas do que come.</span></li>
+        </ul>
+        <p class="routine-end">A reeducação alimentar nunca foi tão deliciosa. Recupere seu corpo em paz e garanta o que ele precisa para queimar gordura naturalmente.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-strip">
+    <a class="btn" href="#form"><span>Quero experimentar!</span><i class="arrow" aria-hidden="true"><svg viewBox="0 0 14 15" fill="none"><path d="M1 6.36a1 1 0 0 0 0 2v-2Zm12.44 1.71a1 1 0 0 0 0-1.41L7.08.29a1 1 0 0 0-1.42 1.42l5.66 5.65-5.66 5.66a1 1 0 1 0 1.42 1.41l6.36-6.36ZM1 7.36v1h11.73v-2H1v1Z" fill="white"/></svg></i></a>
+  </section>
+
+  <section class="testimonials" aria-label="Depoimentos">
+    <h2>O que dizem sobre as <span class="green">nossas receitas</span></h2>
+    <div class="carousel-wrap">
+      <button class="nav-arrow prev" type="button" aria-label="Depoimento anterior"><svg viewBox="0 0 45 45" fill="none"><path d="M42.78 22.5H2.22M18.81 39.09 2.22 22.5 18.81 5.91" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <div class="track">
+        <article class="testimonial">
+          <div class="person"><img src="/lp-delicias-que-desinflamam/assets/chat-lines.webp" alt=""><div><strong>Mariana S.</strong><p class="stars">★★★★★</p></div></div>
+          <p>Eu vivia com uma ‘névoa mental’ e cansaço extremo à tarde. Depois que comecei os shots matinais e outras receitas do e-book, minha disposição é outra. Já desinchei 3kg sem passar fome!</p>
+        </article>
+        <article class="testimonial">
+          <div class="person"><img src="/lp-delicias-que-desinflamam/assets/chat-lines.webp" alt=""><div><strong>Camila R.</strong><p class="stars">★★★★★</p></div></div>
+          <p>Sempre achei que doce fit era ruim, mas as receitas de sobremesas desse guia mudaram meu conceito. Emagrecer comendo mousse de chocolate é surreal!</p>
+        </article>
+        <article class="testimonial">
+          <div class="person"><img src="/lp-delicias-que-desinflamam/assets/chat-lines.webp" alt=""><div><strong>Juliana M.</strong><p class="stars">★★★★★</p></div></div>
+          <p>O inchaço abdominal sumiu em menos de uma semana. As receitas são rápidas e o sabor é maravilhoso. Finalmente uma dieta que eu consigo seguir.</p>
+        </article>
+        <article class="testimonial">
+          <div class="person"><img src="/lp-delicias-que-desinflamam/assets/chat-lines.webp" alt=""><div><strong>Mariana S.</strong><p class="stars">★★★★★</p></div></div>
+          <p>Eu vivia com uma ‘névoa mental’ e cansaço extremo à tarde. Depois que comecei os shots matinais e outras receitas do e-book, minha disposição é outra. Já desinchei 3kg sem passar fome!</p>
+        </article>
+        <article class="testimonial">
+          <div class="person"><img src="/lp-delicias-que-desinflamam/assets/chat-lines.webp" alt=""><div><strong>Camila R.</strong><p class="stars">★★★★★</p></div></div>
+          <p>Sempre achei que doce fit era ruim, mas as receitas de sobremesas desse guia mudaram meu conceito. Emagrecer comendo mousse de chocolate é surreal!</p>
+        </article>
+      </div>
+      <button class="nav-arrow next" type="button" aria-label="Próximo depoimento"><svg viewBox="0 0 43 43" fill="none"><path d="M1.22 21.5h40.56M25.19 38.09 41.78 21.5 25.19 4.91" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+    </div>
+  </section>
+
+  <section class="final">
+    <div class="wrap">
+      <span class="pill">Transforme seu corpo agora!</span>
+      <h2>Não perca a chance de <span class="green">transformar</span> seu metabolismo com <span class="green">custo zero</span>.</h2>
+      <div class="price"><s>De: R$ 59,90</s><strong>Por: R$ 0,00</strong></div>
+      <div class="final-cta">
+        <a class="btn" href="#form"><span>Quero experimentar!</span><i class="arrow" aria-hidden="true"><svg viewBox="0 0 14 15" fill="none"><path d="M1 6.36a1 1 0 0 0 0 2v-2Zm12.44 1.71a1 1 0 0 0 0-1.41L7.08.29a1 1 0 0 0-1.42 1.42l5.66 5.65-5.66 5.66a1 1 0 1 0 1.42 1.41l6.36-6.36ZM1 7.36v1h11.73v-2H1v1Z" fill="white"/></svg></i></a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <img class="logo" src="/lp-delicias-que-desinflamam/assets/logo-soufit.svg" alt="SouFit">
+    <p>© Copyright 2026. Todos os direitos reservados.</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var storageKey = 'soufit_tracking_params';
+  var redirectUrl = '/lp-delicias-que-desinflamam-obg/';
+  var track = document.querySelector('.track');
+  var index = 0;
+
+  function visibleSlides() {
+    if (window.matchMedia('(max-width: 767px)').matches) return 1;
+    if (window.matchMedia('(max-width: 1024px)').matches) return 2;
+    return 3;
+  }
+  function moveCarousel(next) {
+    if (!track) return;
+    var cards = track.querySelectorAll('.testimonial');
+    var max = Math.max(0, cards.length - visibleSlides());
+    index = Math.max(0, Math.min(max, next));
+    var card = cards[0];
+    var gap = 20;
+    var shift = card ? (card.getBoundingClientRect().width + gap) * index : 0;
+    track.style.transform = 'translateX(-' + shift + 'px)';
+  }
+  document.querySelector('.prev')?.addEventListener('click', function () { moveCarousel(index - 1); });
+  document.querySelector('.next')?.addEventListener('click', function () { moveCarousel(index + 1); });
+  window.addEventListener('resize', function () { moveCarousel(index); });
+  setInterval(function () {
+    var cards = track ? track.querySelectorAll('.testimonial') : [];
+    var max = Math.max(0, cards.length - visibleSlides());
+    moveCarousel(index >= max ? 0 : index + 1);
+  }, 5000);
+
+  function utms() {
+    try { return JSON.parse(localStorage.getItem(storageKey) || '{}'); }
+    catch (_) { return {}; }
+  }
+  function message(form, text) {
+    var el = form.querySelector('.soufit-msg');
+    if (!el) {
+      el = document.createElement('p');
+      el.className = 'soufit-msg';
+      form.appendChild(el);
+    }
+    el.textContent = text;
+  }
+  function value(form, name) {
+    var el = form.querySelector('[name="' + name + '"]');
+    return el ? el.value.trim() : '';
+  }
+  document.querySelectorAll('.js-lead-form').forEach(function (form) {
+    form.addEventListener('submit', function (event) {
+      event.preventDefault();
+      var email = value(form, 'email');
+      if (!email || !/\S+@\S+\.\S+/.test(email)) {
+        message(form, 'Informe um e-mail válido para receber o e-book.');
+        return;
+      }
+      var button = form.querySelector('button[type="submit"]');
+      if (button) {
+        button.disabled = true;
+        button.querySelector('span').textContent = 'Liberando acesso...';
+      }
+      var data = utms();
+      fetch('/ac-submit.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: value(form, 'name'),
+          email: email,
+          phone: value(form, 'phone'),
+          tag: value(form, 'tag'),
+          utm_source: data.utm_source || '',
+          utm_medium: data.utm_medium || '',
+          utm_campaign: data.utm_campaign || '',
+          utm_content: data.utm_content || '',
+          utm_term: data.utm_term || ''
+        }),
+        keepalive: true
+      }).finally(function () {
+        window.location.href = redirectUrl;
+      });
+    });
+  });
+})();
+</script>
+</body>
+</html>

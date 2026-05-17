@@ -10,6 +10,7 @@ define('AC_KEY',     '037f32d7d6671a1e927537e8f0bd62cb4783a5b294f7abbbc9c0daf502
 define('AC_LIST_ID', 2);
 define('AC_ALLOWED_TAGS', [
     'Ebook - Magra em Casa',
+    'Ebook - Delícias que Desinflamam',
 ]);
 
 // Campos UTM criados no AC (IDs)

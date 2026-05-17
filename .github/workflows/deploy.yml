@@ -83,7 +83,7 @@ jobs:
           publish_file "/home3/mate9316/lp.soufit.com" "robots.txt"        "shared/robots.txt"
 
 
-          for site in fitmoderno upsell lp-protocolo-magra-em-casa lp-protocolo-magra-em-casa-obg; do
+          for site in fitmoderno upsell lp-protocolo-magra-em-casa lp-protocolo-magra-em-casa-obg lp-delicias-que-desinflamam lp-delicias-que-desinflamam-obg; do
             find "$site" -type d | sort | while read -r local_dir; do
               mkdir_remote "/home3/mate9316/lp.soufit.com/$local_dir"
             done
